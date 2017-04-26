@@ -1,0 +1,95 @@
+﻿
+<div class="nav-bar-main  visible-md visible-lg visible-sm" role="navigation">
+    <div class="menu-bar row">
+        <div class="logo col-md-2  col-sm-2">
+            <a href="/Home" title="Logo" rel="home">
+                <img src="~/Images/logo.png" class="img-responsive logo-img" alt="Universe">
+            </a>
+        </div>
+        <nav class="main-navigation" role="navigation">
+            <ul class="main-menu nav-menu nav navbar-nav">
+                <li class="active">
+                    <a href="/Home" data-toggle="tooltip" title="home">
+                        <span class="fa fa-home" style="margin-right:5px;"></span>Trang chủ</i>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="/Intro" data-toggle="tooltip" title="home">
+                        <span class="fa fa-info" style="margin-right:5px;"></span>Giới thiệu</i>
+                    </a>
+                </li>
+
+            </ul> <!-- /.main-menu -->
+            @*<ul class="sign-in-menu nav-menu nav navbar-nav navbar-right pull-right">
+                <li class="" data-toggle="modal" data-target="#formModal">
+                    <a title="Đăng nhập">
+                        <span class="fa fa-sign-in" style="margin-right:5px;"></span>Đăng nhập</i>
+                    </a>
+                </li>
+                <li class="">
+                    <a title="Đăng ký" href="/DesignSurvey">
+                        <span class="fa fa-user-circle" style="margin-right:5px;"></span>Đăng ký</i>
+                    </a>
+                </li>
+            </ul>*@
+            <ul class="account-option nav-menu nav navbar-nav navbar-right pull-right">
+                <li class="" style="background-color:#39b3d7">
+                    <a title="Thêm survey" href="/DesignSurvey">
+                        <span class="fa fa-plus" style="margin-right:5px;"></span>Thêm survey</i>
+                    </a>
+                </li>
+                <li class="account-name dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <img src="~/Images/User_Circle.png" class="img-responsive img-rounded user-img" />
+                        <span class="name">Admin</span><span class="fa fa-angle-down"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a tabindex="-1" href="/Account/AccountManagement"><i class="fa fa-user-circle-o"></i> Cập nhật tài khoản</a></li>
+                        <li><a tabindex="-1" href="#"><i class="fa fa-power-off"></i> Đăng xuất</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+
+
+        </nav> <!-- /.main-navigation -->
+    </div> <!-- /.container -->
+</div>
+<div>
+    <div class="col-lg-12">
+        <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <center><h4 class="modal-title" id="H2">Đăng nhập</h4></center>
+                    </div>
+                    <div class="modal-body">
+                        <form role="form">
+                            <div class="form-group">
+                                <label>Tên tài khoản</label>
+                                <input class="form-control" type="text" placeholder="Nhập tên tài khoản" />
+                            </div>
+                            <div class="form-group">
+                                <label>Mật khẩu</label>
+                                <input class="form-control" placeholder="Nhập mật khẩu" type="password" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-block btn-social btn-facebook">
+                            <i class="fa fa-facebook"></i> Sign in with Facebook
+                        </a>
+
+                        <a class="btn btn-block btn-social btn-google-plus">
+                            <i class="fa fa-google-plus"></i> Sign in with Google
+                        </a>
+
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-primary">Đăng nhập</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

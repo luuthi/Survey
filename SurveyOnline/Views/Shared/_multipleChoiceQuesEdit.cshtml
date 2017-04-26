@@ -1,0 +1,150 @@
+﻿<div class="ediQuestion">
+    <div class="editQuestionContent">
+        <div class="optionQuestionSetting row">
+            <div class="cmbTypeOfQuestion col-md-4 col-sm-4 col-xs-12">
+                <select class="form-control tab-select" >
+                    <option value="MultipleChoice">Multiple Choice</option>
+                    <option value="Dropdown">Dropdown</option>
+                    <option value="Checkboxs">Checkboxes</option>
+                    <option value="LinearScale">Linear Scale</option>
+                    <option value="Paragraph">Paragraph</option>
+                    <option value="Date">Date</option>
+                    <option value="Time">Time</option>
+                </select>
+            </div>
+            <div class="optionOther col-md-8 col-sm-8 col-xs-12">
+                <div class="row">
+                    <div class="col-md-6 col-sm-8 col-xs-6">
+                        <span >Bắt buộc</span>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <div class="slider round"></div>
+                        </label>
+                    </div>
+                   <div class="col-md-6 col-sm-4 col-xs-6">
+                       <i class="fa fa-trash icon-option" title="Xóa"></i>
+                       <i class="fa fa-copy icon-option" title="Sao chép"> </i>
+                       <i class="img-icon fa fa-image" title="Thêm ảnh"></i>
+
+                   </div>
+                  
+                </div>
+               
+            </div>
+        </div>
+        <div class="titleQuestionContainer col-md-12">
+                <input type="text" name="titleQuestion" id="titleQuestion" class="titleQuestion" placeholder="Nội dung câu hỏi..." />
+        </div>
+        <div class="tab-content answer-container">
+            <div class="tab-pane fade in active" id="multipleChoice" >
+                <table class="answerContainer">
+                    <tbody class="answer-list">
+                        <tr>
+                            <td width="5%">
+                                <span class="radio-button-display-edit"></span>
+                            </td>
+                            <td width="75%">
+                                <input type="text" name="titleQuestion" id="titleQuestion" class="contant-solution form-control" placeholder="Nhập lựa chọn ..." />
+                            </td>
+                            <td width="20%">
+                                <i class="addAns fa fa-plus "></i>
+                                <i class="delAns fa fa-trash-o"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="5%">
+                                <span class="radio-button-display-edit"></span>
+                            </td>
+                            <td width="75%">
+                                <input type="text" name="titleQuestion" id="titleQuestion" class="contant-solution form-control" placeholder="Nhập lựa chọn ..." />
+                            </td>
+                            <td width="20%">
+                                <i class="addAns fa fa-plus "></i>
+                                <i class="delAns fa fa-trash-o"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="dropDown">
+                <table class="answerContainer">
+
+                    <tbody class="answer-list">
+                        <tr>
+                            <td width="5%">
+                                <span class="">1</span>
+                            </td>
+                            <td width="75%">
+                                <input type="text" name="titleQuestion" id="titleQuestion" class="contant-solution form-control" placeholder="Nhập lựa chọn ..." />
+                            </td>
+                            <td width="20%">
+                                <i class="addAns fa fa-plus "></i>
+                                <i class="delAns fa fa-trash-o"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="5%">
+                                <span class="">2</span>
+                            </td>
+                            <td width="75%">
+                                <input type="text" name="titleQuestion" id="titleQuestion" class="contant-solution form-control" placeholder="Nhập lựa chọn ..." />
+                            </td>
+                            <td width="20%">
+                                <i class="addAns fa fa-plus "></i>
+                                <i class="delAns fa fa-trash-o"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="checkBoxes">
+                <table class="answerContainer">
+                    <tbody class="answer-list">
+                        <tr>
+                            <td width="5%">
+                                <span class="checkbox-button-display-edit"></span>
+                            </td>
+                            <td width="75%">
+                                <input type="text" name="titleQuestion" id="titleQuestion" class="contant-solution form-control" placeholder="Nhập lựa chọn ..." />
+                            </td>
+                            <td width="20%">
+                                <i class="addAns fa fa-plus "></i>
+                                <i class="delAns fa fa-trash-o"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="5%">
+                                <span class="checkbox-button-display-edit"></span>
+                            </td>
+                            <td width="75%">
+                                <input type="text" name="titleQuestion" id="titleQuestion" class="contant-solution form-control" placeholder="Nhập lựa chọn ..." />
+                            </td>
+                            <td width="20%">
+                                <i class="addAns fa fa-plus "></i>
+                                <i class="delAns fa fa-trash-o"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="linearScale">
+
+            </div>
+            <div class="tab-pane fade" id="paragraph">
+
+            </div>
+            <div class="tab-pane fade" id="date">
+
+            </div>
+            <div class="tab-pane fade" id="time">
+
+            </div>
+        </div>
+
+        <div class="btn-handle col-md-12 col-sm-12 col-xs-12">
+            <a class="btn btn-info" id="btn-save-add">Lưu + Thêm</a>
+            <a class="btn btn-info" id="btn-save">Lưu</a>
+            <a class="btn btn-warning" id="btn-cancel">Hủy</a>
+        </div>
+    </div>
+</div>

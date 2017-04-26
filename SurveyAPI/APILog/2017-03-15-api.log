@@ -1,0 +1,16 @@
+2017-03-15 00:12:13.3216|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:29119/api/SurveyType
+Token: a7c6dd44-0dae-4b05-a690-e24b4fda2689
+Controller : SurveyAPI.Controllers.SurveyTypeController
+Action : Get
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2017-03-15 00:13:26.9381|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: POST
+URL: http://localhost:29119/api/SurveyType
+Token: a7c6dd44-0dae-4b05-a690-e24b4fda2689
+Controller : SurveyAPI.Controllers.SurveyTypeController
+Action : Post
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+

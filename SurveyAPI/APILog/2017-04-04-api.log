@@ -1,0 +1,98 @@
+2017-04-04 13:32:22.3629|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: GET
+URL: http://www.surveyapi.dev/api/Accounts?username=thiluu&password=123
+Controller : SurveyAPI.Controllers.AccountsController
+Action : Get
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2017-04-04 13:32:23.5275|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: GET
+URL: http://www.surveyapi.dev/api/Accounts?username=thiluu&password=123
+Controller : SurveyAPI.Controllers.AccountsController
+Action : Get
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2017-04-04 13:32:23.5554|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: GET
+URL: http://www.surveyapi.dev/api/Accounts?username=thiluu&password=123
+Controller : SurveyAPI.Controllers.AccountsController
+Action : Get
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2017-04-04 13:32:30.1404|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: GET
+URL: http://www.surveyapi.dev/api/Accounts?username=thiluu&password=123
+Controller : SurveyAPI.Controllers.AccountsController
+Action : Get
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2017-04-04 13:32:37.7129|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: GET
+URL: http://www.surveyapi.dev/api/Accounts?username=thiluuu&password=123
+Controller : SurveyAPI.Controllers.AccountsController
+Action : Get
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2017-04-04 13:36:32.6964|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: GET
+URL: http://www.surveyapi.dev/api/Accounts?username=thiluuu&password=123
+Controller : SurveyAPI.Controllers.AccountsController
+Action : Get
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2017-04-04 13:36:34.2739|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: GET
+URL: http://www.surveyapi.dev/api/Accounts?username=thiluuu&password=123
+Controller : SurveyAPI.Controllers.AccountsController
+Action : Get
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2017-04-04 13:36:34.9174|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: GET
+URL: http://www.surveyapi.dev/api/Accounts?username=thiluuu&password=123
+Controller : SurveyAPI.Controllers.AccountsController
+Action : Get
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2017-04-04 13:36:34.9414|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: GET
+URL: http://www.surveyapi.dev/api/Accounts?username=thiluuu&password=123
+Controller : SurveyAPI.Controllers.AccountsController
+Action : Get
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2017-04-04 13:36:35.3332|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: GET
+URL: http://www.surveyapi.dev/api/Accounts?username=thiluuu&password=123
+Controller : SurveyAPI.Controllers.AccountsController
+Action : Get
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2017-04-04 13:36:35.3597|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: GET
+URL: http://www.surveyapi.dev/api/Accounts?username=thiluuu&password=123
+Controller : SurveyAPI.Controllers.AccountsController
+Action : Get
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2017-04-04 13:37:14.9704|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: GET
+URL: http://www.surveyapi.dev/api/Accounts?username=thiluu&password=123
+Controller : SurveyAPI.Controllers.AccountsController
+Action : Get
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2017-04-04 13:39:11.2215|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: GET
+URL: http://www.surveyapi.dev/api/Accounts?username=undefined&password=undefined
+Controller : SurveyAPI.Controllers.AccountsController
+Action : Get
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2017-04-04 13:39:16.6882|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: GET
+URL: http://www.surveyapi.dev/api/Accounts?username=thiluu&password=123
+Controller : SurveyAPI.Controllers.AccountsController
+Action : Get
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+

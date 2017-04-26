@@ -1,0 +1,128 @@
+﻿@{
+    ViewBag.Title = "Thiết kế";
+}
+
+<header class="subhead container">
+    <div class="navigationTabs row">
+        <div class="survey-header col-md-8 col-sm-12 col-xs-12">
+            <a href="/home" class="home-nav-button" title="Home"><span class="fa fa-home"></span></a>
+            <span class="fa fa-caret-right"></span>
+            <div class="survey-header-title-container">
+
+                <h2 class="survey-header-title">Khảo sát thị trường hàng hoá tiêu dùng, nhu yếu phẩm tết đinh dậu 2017</h2>
+
+            </div>
+
+        </div>
+        <ul class="survey-header-tabs nav nav-tabs col-md-4 col-sm-12 col-xs-12">
+            <li class="">
+                <a href="#tabThongke" data-toggle="tab">
+                    Thu thập kết quả
+                </a>
+            </li>
+            <li class="sm-corner-t active">
+                <a href="#tabDesign" data-toggle="tab">
+                    Thiết kế
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</header>
+<div class="tab-content row">
+    <div class="tab-pane fade in active" id="tabDesign">
+        <div class="editingSurvey row">
+            <div class="buttons">
+                <a class="btn btn-info" href="">
+                    <i class="fa  fa-file-text-o"></i>Bản xem trước
+                </a>
+                <a class="btn btn-info " href="#" title="Print Survey"><i class="fa fa-print"></i> In</a>
+            </div>
+        </div>
+
+
+
+        <div class="row main-design">
+            <div class="survey-page col-md-8 col-lg-8 col-xs-12 col-sm-12 col-md-push-2 col-lg-push-2 ">
+
+                <div class="header">
+                    <div class="addLogoHere hoverable " title="Nhấn để thêm ảnh" data-toggle="modal" data-target="#uploadForm">
+                        <div class="Logo-container">
+                            <img src="~/Images/image_sample.png" alt="" height="25" />
+                            <span>+ Thêm hình ảnh</span>
+                        </div>
+                    </div>
+                    <div class="survey-page-header row hoverable" title="Nhấn để sửa tên survey">
+                        <div class="survey-title-container col-md-10 col-sm-10 col-xs-12">
+                            <p class="survey-title"> Untitled Survey Untitled </p>
+                        </div>
+                        <div class="editingbtn hidden col-md-2 col-sm-2 col-xs-12">
+                            <button class="btn btn-primary edibtn">Sửa</button>
+                        </div>
+
+                    </div>
+                    @Html.Partial("_editSurveyName")
+                    @Html.Partial("_surveyDesModel")
+                    @Html.Partial("_editSurveyDes")
+                </div>
+
+
+                <nav class="toolbox-scrollbox">
+                    <ul>
+                        <li class="btn-add-question" title="Thêm câu hỏi"><i class="fa fa-plus"></i></li>
+                        <li class="btn-add-title" title="Thêm tiêu đề"><i class="fa fa-buysellads"></i></li>
+                        <li class="" title="Thêm ảnh" data-toggle="modal" data-target="#uploadForm"><i class="fa fa-image"></i></li>
+                    </ul>
+                </nav>
+                <nav class="toolbox-pinnedbottom">
+                    <ul>
+                        <li class="btn-add-question" title="Thêm câu hỏi"><i class="fa fa-plus"></i></li>
+                        <li class="btn-add-title" title="Thêm tiêu đề"><i class="fa fa-buysellads"></i></li>
+                        <li class="" title="Thêm ảnh" data-toggle="modal" data-target="#uploadForm"><i class="fa fa-image"></i></li>
+                    </ul>
+                </nav>
+                <section class="survey-page-body">
+
+                    <form name="surveyForm" action="" method="post" enctype="multipart/form-data" novalidate data-survey-page-form>
+                        <div class="questions-container" id="questions-container">
+                            <div class="question-row">
+                                <div class="model" id="1">
+                                    @Html.Partial("_multipleChoiceQuesModel")
+                                </div>
+                                <div class="edit hide" id="1">
+                                    @Html.Partial("_multipleChoiceQuesEdit")
+                                </div>
+                            </div>
+                            <div class="question-row">
+                                <div class="model" id="2">
+                                    @Html.Partial("_multipleChoiceQuesModel")
+                                </div>
+                                <div class="edit hide" id="2">
+                                    @Html.Partial("_multipleChoiceQuesEdit")
+                                </div>
+                            </div>
+                            <div class="edit" id="new">
+
+                            </div>
+                        </div>
+                    </form>
+                </section>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="tabThongke">
+        <div class="survey-statistic col-md-8 col-lg-8 col-xs-12 col-sm-12 col-md-push-2 col-lg-push-2 ">
+            <div class="info-statistic col-md-12 col-sm-12 col-xs-12">
+                 <span class="" style="font-size:24px; font-weight:bold">Số phiếu phản hồi : 0</span>
+            </div>
+            <div class="detail-statistic col-md-12 col-sm-12 col-xs-12">
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_uploadPicture")

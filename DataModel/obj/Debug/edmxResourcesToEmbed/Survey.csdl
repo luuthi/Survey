@@ -1,0 +1,938 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SurveyInfoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GroupID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Passwords" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Birthday" Type="DateTime" Precision="3" />
+    <Property Name="Gender" Type="Boolean" />
+    <Property Name="Mail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Avatar" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="AccountGroup" Relationship="Self.FK_Account_AccountGroup" FromRole="Account" ToRole="AccountGroup" />
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="Tokens" Relationship="SurveyInfoModel.FK_Tokens_Account" FromRole="Account" ToRole="Token" />
+  </EntityType>
+  <EntityType Name="AccountGroup">
+    <Key>
+      <PropertyRef Name="GroupID" />
+    </Key>
+    <Property Name="GroupID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Descriptions" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Accounts" Relationship="Self.FK_Account_AccountGroup" FromRole="AccountGroup" ToRole="Account" />
+    <NavigationProperty Name="RolesDetails" Relationship="Self.FK_RolesDetail_AccountGroup" FromRole="AccountGroup" ToRole="RolesDetail" />
+  </EntityType>
+  <EntityType Name="AnswerPaper">
+    <Key>
+      <PropertyRef Name="IdAnsPaper" />
+    </Key>
+    <Property Name="IdAnsPaper" Type="Guid" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IdSurvey" Type="Guid" />
+    <Property Name="Descriptions" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="Answers" Relationship="Self.FK_Answers_AnswerPaper" FromRole="AnswerPaper" ToRole="Answers" />
+    <NavigationProperty Name="SurveyInfo" Relationship="Self.FK_SurveyInfo_AnswerPaper" FromRole="AnswerPaper" ToRole="SurveyInfo" />
+    <NavigationProperty Name="SurveyInfo1" Relationship="SurveyInfoModel.FK_AnswerPaper_SurveyInfo" FromRole="AnswerPaper" ToRole="SurveyInfo" />
+  </EntityType>
+  <EntityType Name="Answer">
+    <Key>
+      <PropertyRef Name="IdAnswer" />
+    </Key>
+    <Property Name="IdAnswer" Type="Guid" Nullable="false" />
+    <Property Name="IdAnsPaper" Type="Guid" />
+    <Property Name="IdChoices" Type="Guid" />
+    <Property Name="IdQuestion" Type="Guid" />
+    <NavigationProperty Name="AnswerPaper" Relationship="Self.FK_Answers_AnswerPaper" FromRole="Answers" ToRole="AnswerPaper" />
+    <NavigationProperty Name="Choice" Relationship="Self.FK_Answers_Choices" FromRole="Answers" ToRole="Choices" />
+    <NavigationProperty Name="Question" Relationship="Self.FK_Answers_Question" FromRole="Answers" ToRole="Question" />
+  </EntityType>
+  <EntityType Name="Choice">
+    <Key>
+      <PropertyRef Name="IdChoices" />
+    </Key>
+    <Property Name="IdChoices" Type="Guid" Nullable="false" />
+    <Property Name="IdQuestion" Type="Guid" />
+    <Property Name="NumericalOrder" Type="Int32" />
+    <Property Name="Content" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastEditedAt" Type="DateTime" Precision="3" />
+    <Property Name="LastEditedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Answers" Relationship="Self.FK_Answers_Choices" FromRole="Choices" ToRole="Answers" />
+    <NavigationProperty Name="Question" Relationship="Self.FK_Choices_Question" FromRole="Choices" ToRole="Question" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="IdQuestion" />
+    </Key>
+    <Property Name="IdQuestion" Type="Guid" Nullable="false" />
+    <Property Name="IdQuestionGroup" Type="Guid" />
+    <Property Name="NumericalOrder" Type="Int32" />
+    <Property Name="IdSurvey" Type="Guid" />
+    <Property Name="IdQuesType" Type="Guid" />
+    <Property Name="Content" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Images" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IsRequired" Type="Boolean" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="LastEditedAt" Type="DateTime" Precision="3" />
+    <Property Name="LastEditedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Answers" Relationship="Self.FK_Answers_Question" FromRole="Question" ToRole="Answers" />
+    <NavigationProperty Name="Choices" Relationship="Self.FK_Choices_Question" FromRole="Question" ToRole="Choices" />
+    <NavigationProperty Name="QuestionGroup" Relationship="Self.FK_Question_QuestionGroup" FromRole="Question" ToRole="QuestionGroup" />
+    <NavigationProperty Name="QuestionType" Relationship="Self.FK_Question_QuestionType" FromRole="Question" ToRole="QuestionType" />
+    <NavigationProperty Name="SurveyInfo" Relationship="Self.FK_Question_SurveyInfo" FromRole="Question" ToRole="SurveyInfo" />
+  </EntityType>
+  <EntityType Name="QuestionGroup">
+    <Key>
+      <PropertyRef Name="IdQuestionGroup" />
+    </Key>
+    <Property Name="IdQuestionGroup" Type="Guid" Nullable="false" />
+    <Property Name="Content" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastEditedAt" Type="DateTime" Precision="3" />
+    <Property Name="LastEditedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Questions" Relationship="Self.FK_Question_QuestionGroup" FromRole="QuestionGroup" ToRole="Question" />
+  </EntityType>
+  <EntityType Name="QuestionType">
+    <Key>
+      <PropertyRef Name="IdQuesType" />
+    </Key>
+    <Property Name="IdQuesType" Type="Guid" Nullable="false" />
+    <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="LastEditedAt" Type="DateTime" Precision="3" />
+    <Property Name="LastEditedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Questions" Relationship="Self.FK_Question_QuestionType" FromRole="QuestionType" ToRole="Question" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="RolesDetails" Relationship="Self.FK_RolesDetail_Roles" FromRole="Roles" ToRole="RolesDetail" />
+  </EntityType>
+  <EntityType Name="RolesDetail">
+    <Key>
+      <PropertyRef Name="RoleDetailID" />
+    </Key>
+    <Property Name="RoleDetailID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoleID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="GroupID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="View_" Type="Boolean" />
+    <Property Name="Add_" Type="Boolean" />
+    <Property Name="Update_" Type="Boolean" />
+    <Property Name="Delete_" Type="Boolean" />
+    <NavigationProperty Name="AccountGroup" Relationship="Self.FK_RolesDetail_AccountGroup" FromRole="RolesDetail" ToRole="AccountGroup" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_RolesDetail_Roles" FromRole="RolesDetail" ToRole="Roles" />
+  </EntityType>
+  <EntityType Name="SurveyInfo">
+    <Key>
+      <PropertyRef Name="IdSurvey" />
+    </Key>
+    <Property Name="IdSurvey" Type="Guid" Nullable="false" />
+    <Property Name="IdSurType" Type="Guid" />
+    <Property Name="SurveyName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Descriptions" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Images" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastEditedAt" Type="DateTime" Precision="3" />
+    <Property Name="LastEditedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="OwnedUserID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AnswerPaper" Relationship="Self.FK_SurveyInfo_AnswerPaper" FromRole="SurveyInfo" ToRole="AnswerPaper" />
+    <NavigationProperty Name="Questions" Relationship="Self.FK_Question_SurveyInfo" FromRole="SurveyInfo" ToRole="Question" />
+    <NavigationProperty Name="SurveyType" Relationship="Self.FK_SurveyInfo_SurveyType" FromRole="SurveyInfo" ToRole="SurveyType" />
+    <NavigationProperty Name="AnswerPapers" Relationship="SurveyInfoModel.FK_AnswerPaper_SurveyInfo" FromRole="SurveyInfo" ToRole="AnswerPaper" />
+  </EntityType>
+  <EntityType Name="SurveyType">
+    <Key>
+      <PropertyRef Name="IdSurType" />
+    </Key>
+    <Property Name="IdSurType" Type="Guid" Nullable="false" />
+    <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Descriptions" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="LastEditedAt" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="SurveyInfoes" Relationship="Self.FK_SurveyInfo_SurveyType" FromRole="SurveyType" ToRole="SurveyInfo" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Account_AccountGroup">
+    <End Role="AccountGroup" Type="Self.AccountGroup" Multiplicity="0..1" />
+    <End Role="Account" Type="Self.Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccountGroup">
+        <PropertyRef Name="GroupID" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolesDetail_AccountGroup">
+    <End Role="AccountGroup" Type="Self.AccountGroup" Multiplicity="0..1" />
+    <End Role="RolesDetail" Type="Self.RolesDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccountGroup">
+        <PropertyRef Name="GroupID" />
+      </Principal>
+      <Dependent Role="RolesDetail">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Answers_AnswerPaper">
+    <End Role="AnswerPaper" Type="Self.AnswerPaper" Multiplicity="0..1" />
+    <End Role="Answers" Type="Self.Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AnswerPaper">
+        <PropertyRef Name="IdAnsPaper" />
+      </Principal>
+      <Dependent Role="Answers">
+        <PropertyRef Name="IdAnsPaper" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurveyInfo_AnswerPaper">
+    <End Role="AnswerPaper" Type="Self.AnswerPaper" Multiplicity="1" />
+    <End Role="SurveyInfo" Type="Self.SurveyInfo" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="AnswerPaper">
+        <PropertyRef Name="IdAnsPaper" />
+      </Principal>
+      <Dependent Role="SurveyInfo">
+        <PropertyRef Name="IdSurvey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Answers_Choices">
+    <End Role="Choices" Type="Self.Choice" Multiplicity="0..1" />
+    <End Role="Answers" Type="Self.Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Choices">
+        <PropertyRef Name="IdChoices" />
+      </Principal>
+      <Dependent Role="Answers">
+        <PropertyRef Name="IdChoices" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Answers_Question">
+    <End Role="Question" Type="Self.Question" Multiplicity="0..1" />
+    <End Role="Answers" Type="Self.Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="IdQuestion" />
+      </Principal>
+      <Dependent Role="Answers">
+        <PropertyRef Name="IdQuestion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Choices_Question">
+    <End Role="Question" Type="Self.Question" Multiplicity="0..1" />
+    <End Role="Choices" Type="Self.Choice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="IdQuestion" />
+      </Principal>
+      <Dependent Role="Choices">
+        <PropertyRef Name="IdQuestion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Question_QuestionGroup">
+    <End Role="QuestionGroup" Type="Self.QuestionGroup" Multiplicity="0..1" />
+    <End Role="Question" Type="Self.Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuestionGroup">
+        <PropertyRef Name="IdQuestionGroup" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="IdQuestionGroup" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Question_QuestionType">
+    <End Role="QuestionType" Type="Self.QuestionType" Multiplicity="0..1" />
+    <End Role="Question" Type="Self.Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuestionType">
+        <PropertyRef Name="IdQuesType" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="IdQuesType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Question_SurveyInfo">
+    <End Role="SurveyInfo" Type="Self.SurveyInfo" Multiplicity="0..1" />
+    <End Role="Question" Type="Self.Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SurveyInfo">
+        <PropertyRef Name="IdSurvey" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="IdSurvey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolesDetail_Roles">
+    <End Role="Roles" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="RolesDetail" Type="Self.RolesDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="RolesDetail">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurveyInfo_SurveyType">
+    <End Role="SurveyType" Type="Self.SurveyType" Multiplicity="0..1" />
+    <End Role="SurveyInfo" Type="Self.SurveyInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SurveyType">
+        <PropertyRef Name="IdSurType" />
+      </Principal>
+      <Dependent Role="SurveyInfo">
+        <PropertyRef Name="IdSurType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SurveyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="Self.Account" />
+    <EntitySet Name="AccountGroups" EntityType="Self.AccountGroup" />
+    <EntitySet Name="AnswerPapers" EntityType="Self.AnswerPaper" />
+    <EntitySet Name="Answers" EntityType="Self.Answer" />
+    <EntitySet Name="Choices" EntityType="Self.Choice" />
+    <EntitySet Name="Questions" EntityType="Self.Question" />
+    <EntitySet Name="QuestionGroups" EntityType="Self.QuestionGroup" />
+    <EntitySet Name="QuestionTypes" EntityType="Self.QuestionType" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="RolesDetails" EntityType="Self.RolesDetail" />
+    <EntitySet Name="SurveyInfoes" EntityType="Self.SurveyInfo" />
+    <EntitySet Name="SurveyTypes" EntityType="Self.SurveyType" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_Account_AccountGroup" Association="Self.FK_Account_AccountGroup">
+      <End Role="AccountGroup" EntitySet="AccountGroups" />
+      <End Role="Account" EntitySet="Accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolesDetail_AccountGroup" Association="Self.FK_RolesDetail_AccountGroup">
+      <End Role="AccountGroup" EntitySet="AccountGroups" />
+      <End Role="RolesDetail" EntitySet="RolesDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Answers_AnswerPaper" Association="Self.FK_Answers_AnswerPaper">
+      <End Role="AnswerPaper" EntitySet="AnswerPapers" />
+      <End Role="Answers" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurveyInfo_AnswerPaper" Association="Self.FK_SurveyInfo_AnswerPaper">
+      <End Role="AnswerPaper" EntitySet="AnswerPapers" />
+      <End Role="SurveyInfo" EntitySet="SurveyInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Answers_Choices" Association="Self.FK_Answers_Choices">
+      <End Role="Choices" EntitySet="Choices" />
+      <End Role="Answers" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Answers_Question" Association="Self.FK_Answers_Question">
+      <End Role="Question" EntitySet="Questions" />
+      <End Role="Answers" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Choices_Question" Association="Self.FK_Choices_Question">
+      <End Role="Question" EntitySet="Questions" />
+      <End Role="Choices" EntitySet="Choices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_QuestionGroup" Association="Self.FK_Question_QuestionGroup">
+      <End Role="QuestionGroup" EntitySet="QuestionGroups" />
+      <End Role="Question" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_QuestionType" Association="Self.FK_Question_QuestionType">
+      <End Role="QuestionType" EntitySet="QuestionTypes" />
+      <End Role="Question" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_SurveyInfo" Association="Self.FK_Question_SurveyInfo">
+      <End Role="SurveyInfo" EntitySet="SurveyInfoes" />
+      <End Role="Question" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolesDetail_Roles" Association="Self.FK_RolesDetail_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="RolesDetail" EntitySet="RolesDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurveyInfo_SurveyType" Association="Self.FK_SurveyInfo_SurveyType">
+      <End Role="SurveyType" EntitySet="SurveyTypes" />
+      <End Role="SurveyInfo" EntitySet="SurveyInfoes" />
+    </AssociationSet>
+    <FunctionImport Name="AccountDelete">
+      <Parameter Name="Username" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AccountGroupDelete">
+      <Parameter Name="GroupID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AccountGroupInsert">
+      <Parameter Name="GroupID" Mode="In" Type="String" />
+      <Parameter Name="GroupName" Mode="In" Type="String" />
+      <Parameter Name="Descriptions" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AccountGroupSelectAll" ReturnType="Collection(SurveyInfoModel.AccountGroupSelectAll_Result)" />
+    <FunctionImport Name="AccountGroupSelectByID" ReturnType="Collection(SurveyInfoModel.AccountGroupSelectByID_Result)">
+      <Parameter Name="GroupID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AccountGroupUpDate">
+      <Parameter Name="GroupID" Mode="In" Type="String" />
+      <Parameter Name="GroupName" Mode="In" Type="String" />
+      <Parameter Name="Descriptions" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AccountInsert">
+      <Parameter Name="Username" Mode="In" Type="String" />
+      <Parameter Name="GroupID" Mode="In" Type="String" />
+      <Parameter Name="Passwords" Mode="In" Type="String" />
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="Birthday" Mode="In" Type="DateTime" />
+      <Parameter Name="Gender" Mode="In" Type="Boolean" />
+      <Parameter Name="Mail" Mode="In" Type="String" />
+      <Parameter Name="Avatar" Mode="In" Type="Binary" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="AccountSelectAll" ReturnType="Collection(SurveyInfoModel.AccountSelectAll_Result)" />
+    <FunctionImport Name="AccountSelectByID" ReturnType="Collection(SurveyInfoModel.AccountSelectByID_Result)">
+      <Parameter Name="Username" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AccountUpDate">
+      <Parameter Name="Username" Mode="In" Type="String" />
+      <Parameter Name="GroupID" Mode="In" Type="String" />
+      <Parameter Name="Passwords" Mode="In" Type="String" />
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="Birthday" Mode="In" Type="DateTime" />
+      <Parameter Name="Gender" Mode="In" Type="Boolean" />
+      <Parameter Name="Mail" Mode="In" Type="String" />
+      <Parameter Name="Avatar" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="AnswerPaperDelete">
+      <Parameter Name="IdAnsPaper" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="AnswerPaperInsert">
+      <Parameter Name="IdAnsPaper" Mode="In" Type="Guid" />
+      <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IdSurvey" Mode="In" Type="Guid" />
+      <Parameter Name="Descriptions" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="AnswerPaperSelectAll" ReturnType="Collection(SurveyInfoModel.AnswerPaperSelectAll_Result)" />
+    <FunctionImport Name="AnswerPaperSelectByID" ReturnType="Collection(SurveyInfoModel.AnswerPaperSelectByID_Result)">
+      <Parameter Name="IdAnsPaper" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="AnswerPaperUpDate">
+      <Parameter Name="IdAnsPaper" Mode="In" Type="Guid" />
+      <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IdSurvey" Mode="In" Type="Guid" />
+      <Parameter Name="Descriptions" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="AnswersDelete">
+      <Parameter Name="IdAnswer" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="AnswersInsert">
+      <Parameter Name="IdAnswer" Mode="In" Type="Guid" />
+      <Parameter Name="IdAnsPaper" Mode="In" Type="Guid" />
+      <Parameter Name="IdSolutions" Mode="In" Type="Guid" />
+      <Parameter Name="IdQuestion" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="AnswersSelectAll" ReturnType="Collection(SurveyInfoModel.AnswersSelectAll_Result)" />
+    <FunctionImport Name="AnswersSelectByID" ReturnType="Collection(SurveyInfoModel.AnswersSelectByID_Result)">
+      <Parameter Name="IdAnswer" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="AnswersUpDate">
+      <Parameter Name="IdAnswer" Mode="In" Type="Guid" />
+      <Parameter Name="IdAnsPaper" Mode="In" Type="Guid" />
+      <Parameter Name="IdSolutions" Mode="In" Type="Guid" />
+      <Parameter Name="IdQuestion" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="ChoicesDelete">
+      <Parameter Name="IdChoices" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="ChoicesInsert">
+      <Parameter Name="IdChoices" Mode="In" Type="Guid" />
+      <Parameter Name="IdQuestion" Mode="In" Type="Guid" />
+      <Parameter Name="NumericalOrder" Mode="In" Type="Int32" />
+      <Parameter Name="Content" Mode="In" Type="String" />
+      <Parameter Name="LastEditedAt" Mode="In" Type="DateTime" />
+      <Parameter Name="LastEditedBy" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ChoicesSelectAll" ReturnType="Collection(SurveyInfoModel.ChoicesSelectAll_Result)" />
+    <FunctionImport Name="ChoicesSelectByID" ReturnType="Collection(SurveyInfoModel.ChoicesSelectByID_Result)">
+      <Parameter Name="IdChoices" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="ChoicesUpDate">
+      <Parameter Name="IdChoices" Mode="In" Type="Guid" />
+      <Parameter Name="IdQuestion" Mode="In" Type="Guid" />
+      <Parameter Name="NumericalOrder" Mode="In" Type="Int32" />
+      <Parameter Name="Content" Mode="In" Type="String" />
+      <Parameter Name="LastEditedAt" Mode="In" Type="DateTime" />
+      <Parameter Name="LastEditedBy" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="QuestionDelete">
+      <Parameter Name="IdQuestion" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="QuestionGroupDelete">
+      <Parameter Name="IdQuestionGroup" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="QuestionGroupInsert">
+      <Parameter Name="IdQuestionGroup" Mode="In" Type="Guid" />
+      <Parameter Name="Content" Mode="In" Type="String" />
+      <Parameter Name="LastEditedAt" Mode="In" Type="DateTime" />
+      <Parameter Name="LastEditedBy" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="QuestionGroupSelectAll" ReturnType="Collection(SurveyInfoModel.QuestionGroupSelectAll_Result)" />
+    <FunctionImport Name="QuestionGroupSelectByID" ReturnType="Collection(SurveyInfoModel.QuestionGroupSelectByID_Result)">
+      <Parameter Name="IdQuestionGroup" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="QuestionGroupUpDate">
+      <Parameter Name="IdQuestionGroup" Mode="In" Type="Guid" />
+      <Parameter Name="Content" Mode="In" Type="String" />
+      <Parameter Name="LastEditedAt" Mode="In" Type="DateTime" />
+      <Parameter Name="LastEditedBy" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="QuestionInsert">
+      <Parameter Name="IdQuestion" Mode="In" Type="Guid" />
+      <Parameter Name="IdQuestionGroup" Mode="In" Type="Guid" />
+      <Parameter Name="NumericalOrder" Mode="In" Type="Int32" />
+      <Parameter Name="IdSurvey" Mode="In" Type="Guid" />
+      <Parameter Name="IdQuesType" Mode="In" Type="Guid" />
+      <Parameter Name="Content" Mode="In" Type="String" />
+      <Parameter Name="Images" Mode="In" Type="String" />
+      <Parameter Name="IsRequired" Mode="In" Type="Boolean" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="LastEditedAt" Mode="In" Type="DateTime" />
+      <Parameter Name="LastEditedBy" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="QuestionSelectAll" ReturnType="Collection(SurveyInfoModel.QuestionSelectAll_Result)" />
+    <FunctionImport Name="QuestionSelectByID" ReturnType="Collection(SurveyInfoModel.QuestionSelectByID_Result)">
+      <Parameter Name="IdQuestion" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="QuestionTypeDelete">
+      <Parameter Name="IdQuesType" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="QuestionTypeInsert">
+      <Parameter Name="IdQuesType" Mode="In" Type="Guid" />
+      <Parameter Name="TypeName" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="LastEditedAt" Mode="In" Type="DateTime" />
+      <Parameter Name="LastEditedBy" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="QuestionTypeSelectAll" ReturnType="Collection(SurveyInfoModel.QuestionTypeSelectAll_Result)" />
+    <FunctionImport Name="QuestionTypeSelectByID" ReturnType="Collection(SurveyInfoModel.QuestionTypeSelectByID_Result)">
+      <Parameter Name="IdQuesType" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="QuestionTypeUpDate">
+      <Parameter Name="IdQuesType" Mode="In" Type="Guid" />
+      <Parameter Name="TypeName" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="LastEditedAt" Mode="In" Type="DateTime" />
+      <Parameter Name="LastEditedBy" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="QuestionUpDate">
+      <Parameter Name="IdQuestion" Mode="In" Type="Guid" />
+      <Parameter Name="IdQuestionGroup" Mode="In" Type="Guid" />
+      <Parameter Name="NumericalOrder" Mode="In" Type="Int32" />
+      <Parameter Name="IdSurvey" Mode="In" Type="Guid" />
+      <Parameter Name="IdQuesType" Mode="In" Type="Guid" />
+      <Parameter Name="Content" Mode="In" Type="String" />
+      <Parameter Name="Images" Mode="In" Type="String" />
+      <Parameter Name="IsRequired" Mode="In" Type="Boolean" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="LastEditedAt" Mode="In" Type="DateTime" />
+      <Parameter Name="LastEditedBy" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="RolesDelete">
+      <Parameter Name="RoleID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="RolesDetailDelete">
+      <Parameter Name="RoleDetailID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="RolesDetailInsert">
+      <Parameter Name="RoleDetailID" Mode="In" Type="String" />
+      <Parameter Name="RoleID" Mode="In" Type="String" />
+      <Parameter Name="GroupID" Mode="In" Type="String" />
+      <Parameter Name="View_" Mode="In" Type="Boolean" />
+      <Parameter Name="Add_" Mode="In" Type="Boolean" />
+      <Parameter Name="Update_" Mode="In" Type="Boolean" />
+      <Parameter Name="Delete_" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="RolesDetailSelectAll" ReturnType="Collection(SurveyInfoModel.RolesDetailSelectAll_Result)" />
+    <FunctionImport Name="RolesDetailSelectByID" ReturnType="Collection(SurveyInfoModel.RolesDetailSelectByID_Result)">
+      <Parameter Name="RoleDetailID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="RolesDetailUpDate">
+      <Parameter Name="RoleDetailID" Mode="In" Type="String" />
+      <Parameter Name="RoleID" Mode="In" Type="String" />
+      <Parameter Name="GroupID" Mode="In" Type="String" />
+      <Parameter Name="View_" Mode="In" Type="Boolean" />
+      <Parameter Name="Add_" Mode="In" Type="Boolean" />
+      <Parameter Name="Update_" Mode="In" Type="Boolean" />
+      <Parameter Name="Delete_" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="RolesInsert">
+      <Parameter Name="RoleID" Mode="In" Type="String" />
+      <Parameter Name="RoleName" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="RolesSelectAll" ReturnType="Collection(SurveyInfoModel.RolesSelectAll_Result)" />
+    <FunctionImport Name="RolesSelectByID" ReturnType="Collection(SurveyInfoModel.RolesSelectByID_Result)">
+      <Parameter Name="RoleID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="RolesUpDate">
+      <Parameter Name="RoleID" Mode="In" Type="String" />
+      <Parameter Name="RoleName" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(SurveyInfoModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(SurveyInfoModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="SurveyInfoDelete">
+      <Parameter Name="IdSurvey" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="SurveyInfoInsert">
+      <Parameter Name="IdSurvey" Mode="In" Type="Guid" />
+      <Parameter Name="IdSurType" Mode="In" Type="Guid" />
+      <Parameter Name="SurveyName" Mode="In" Type="String" />
+      <Parameter Name="Descriptions" Mode="In" Type="String" />
+      <Parameter Name="Images" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="LastEditedAt" Mode="In" Type="DateTime" />
+      <Parameter Name="LastEditedBy" Mode="In" Type="String" />
+      <Parameter Name="OwnedUserID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SurveyInfoSelectAll" ReturnType="Collection(SurveyInfoModel.SurveyInfoSelectAll_Result)" />
+    <FunctionImport Name="SurveyInfoSelectByID" ReturnType="Collection(SurveyInfoModel.SurveyInfoSelectByID_Result)">
+      <Parameter Name="IdSurvey" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="SurveyInfoUpDate">
+      <Parameter Name="IdSurvey" Mode="In" Type="Guid" />
+      <Parameter Name="IdSurType" Mode="In" Type="Guid" />
+      <Parameter Name="SurveyName" Mode="In" Type="String" />
+      <Parameter Name="Descriptions" Mode="In" Type="String" />
+      <Parameter Name="Images" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="LastEditedAt" Mode="In" Type="DateTime" />
+      <Parameter Name="LastEditedBy" Mode="In" Type="String" />
+      <Parameter Name="OwnedUserID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SurveyTypeDelete">
+      <Parameter Name="IdSurType" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="SurveyTypeInsert">
+      <Parameter Name="IdSurType" Mode="In" Type="Guid" />
+      <Parameter Name="TypeName" Mode="In" Type="String" />
+      <Parameter Name="Descriptions" Mode="In" Type="String" />
+      <Parameter Name="LastEditedAt" Mode="In" Type="DateTime" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="SurveyTypeSelectAll" ReturnType="Collection(SurveyInfoModel.SurveyTypeSelectAll_Result)" />
+    <FunctionImport Name="SurveyTypeSelectByID" ReturnType="Collection(SurveyInfoModel.SurveyTypeSelectByID_Result)">
+      <Parameter Name="IdSurType" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="SurveyTypeUpDate">
+      <Parameter Name="IdSurType" Mode="In" Type="Guid" />
+      <Parameter Name="TypeName" Mode="In" Type="String" />
+      <Parameter Name="Descriptions" Mode="In" Type="String" />
+      <Parameter Name="LastEditedAt" Mode="In" Type="DateTime" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <AssociationSet Name="FK_AnswerPaper_SurveyInfo" Association="SurveyInfoModel.FK_AnswerPaper_SurveyInfo">
+      <End Role="SurveyInfo" EntitySet="SurveyInfoes" />
+      <End Role="AnswerPaper" EntitySet="AnswerPapers" />
+    </AssociationSet>
+    <EntitySet Name="Tokens" EntityType="SurveyInfoModel.Token" />
+    <AssociationSet Name="FK_Tokens_Account" Association="SurveyInfoModel.FK_Tokens_Account">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="Token" EntitySet="Tokens" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="AccountGroupSelectAll_Result">
+    <Property Type="String" Name="GroupID" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="GroupName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Descriptions" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="AccountGroupSelectByID_Result">
+    <Property Type="String" Name="GroupID" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="GroupName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Descriptions" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="AccountSelectAll_Result">
+    <Property Type="String" Name="Username" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="GroupID" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Passwords" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="Birthday" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Gender" Nullable="true" />
+    <Property Type="String" Name="Mail" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Avatar" Nullable="true" MaxLength="500" />
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="AccountSelectByID_Result">
+    <Property Type="String" Name="Username" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="GroupID" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Passwords" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="Birthday" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Gender" Nullable="true" />
+    <Property Type="String" Name="Mail" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Avatar" Nullable="true" MaxLength="500" />
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="AnswerPaperSelectAll_Result">
+    <Property Type="Guid" Name="IdAnsPaper" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="Guid" Name="IdSurvey" Nullable="true" />
+    <Property Type="String" Name="Descriptions" Nullable="true" MaxLength="500" />
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="AnswerPaperSelectByID_Result">
+    <Property Type="Guid" Name="IdAnsPaper" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="Guid" Name="IdSurvey" Nullable="true" />
+    <Property Type="String" Name="Descriptions" Nullable="true" MaxLength="500" />
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="AnswersSelectAll_Result">
+    <Property Type="Guid" Name="IdAnswer" Nullable="false" />
+    <Property Type="Guid" Name="IdAnsPaper" Nullable="true" />
+    <Property Type="Guid" Name="IdChoices" Nullable="true" />
+    <Property Type="Guid" Name="IdQuestion" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="AnswersSelectByID_Result">
+    <Property Type="Guid" Name="IdAnswer" Nullable="false" />
+    <Property Type="Guid" Name="IdAnsPaper" Nullable="true" />
+    <Property Type="Guid" Name="IdChoices" Nullable="true" />
+    <Property Type="Guid" Name="IdQuestion" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ChoicesSelectAll_Result">
+    <Property Type="Guid" Name="IdChoices" Nullable="false" />
+    <Property Type="Guid" Name="IdQuestion" Nullable="true" />
+    <Property Type="Int32" Name="NumericalOrder" Nullable="true" />
+    <Property Type="String" Name="Content" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="LastEditedAt" Nullable="true" Precision="23" />
+    <Property Type="String" Name="LastEditedBy" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="ChoicesSelectByID_Result">
+    <Property Type="Guid" Name="IdChoices" Nullable="false" />
+    <Property Type="Guid" Name="IdQuestion" Nullable="true" />
+    <Property Type="Int32" Name="NumericalOrder" Nullable="true" />
+    <Property Type="String" Name="Content" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="LastEditedAt" Nullable="true" Precision="23" />
+    <Property Type="String" Name="LastEditedBy" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="QuestionGroupSelectAll_Result">
+    <Property Type="Guid" Name="IdQuestionGroup" Nullable="false" />
+    <Property Type="String" Name="Content" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="LastEditedAt" Nullable="true" Precision="23" />
+    <Property Type="String" Name="LastEditedBy" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="QuestionGroupSelectByID_Result">
+    <Property Type="Guid" Name="IdQuestionGroup" Nullable="false" />
+    <Property Type="String" Name="Content" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="LastEditedAt" Nullable="true" Precision="23" />
+    <Property Type="String" Name="LastEditedBy" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="QuestionSelectAll_Result">
+    <Property Type="Guid" Name="IdQuestion" Nullable="false" />
+    <Property Type="Guid" Name="IdQuestionGroup" Nullable="true" />
+    <Property Type="Int32" Name="NumericalOrder" Nullable="true" />
+    <Property Type="Guid" Name="IdSurvey" Nullable="true" />
+    <Property Type="Guid" Name="IdQuesType" Nullable="true" />
+    <Property Type="String" Name="Content" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Images" Nullable="true" MaxLength="500" />
+    <Property Type="Boolean" Name="IsRequired" Nullable="true" />
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+    <Property Type="DateTime" Name="LastEditedAt" Nullable="true" Precision="23" />
+    <Property Type="String" Name="LastEditedBy" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="QuestionSelectByID_Result">
+    <Property Type="Guid" Name="IdQuestion" Nullable="false" />
+    <Property Type="Guid" Name="IdQuestionGroup" Nullable="true" />
+    <Property Type="Int32" Name="NumericalOrder" Nullable="true" />
+    <Property Type="Guid" Name="IdSurvey" Nullable="true" />
+    <Property Type="Guid" Name="IdQuesType" Nullable="true" />
+    <Property Type="String" Name="Content" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Images" Nullable="true" MaxLength="500" />
+    <Property Type="Boolean" Name="IsRequired" Nullable="true" />
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+    <Property Type="DateTime" Name="LastEditedAt" Nullable="true" Precision="23" />
+    <Property Type="String" Name="LastEditedBy" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="QuestionTypeSelectAll_Result">
+    <Property Type="Guid" Name="IdQuesType" Nullable="false" />
+    <Property Type="String" Name="TypeName" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+    <Property Type="DateTime" Name="LastEditedAt" Nullable="true" Precision="23" />
+    <Property Type="String" Name="LastEditedBy" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="QuestionTypeSelectByID_Result">
+    <Property Type="Guid" Name="IdQuesType" Nullable="false" />
+    <Property Type="String" Name="TypeName" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+    <Property Type="DateTime" Name="LastEditedAt" Nullable="true" Precision="23" />
+    <Property Type="String" Name="LastEditedBy" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="RolesDetailSelectAll_Result">
+    <Property Type="String" Name="RoleDetailID" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="RoleID" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="GroupID" Nullable="true" MaxLength="10" />
+    <Property Type="Boolean" Name="View_" Nullable="true" />
+    <Property Type="Boolean" Name="Add_" Nullable="true" />
+    <Property Type="Boolean" Name="Update_" Nullable="true" />
+    <Property Type="Boolean" Name="Delete_" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="RolesDetailSelectByID_Result">
+    <Property Type="String" Name="RoleDetailID" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="RoleID" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="GroupID" Nullable="true" MaxLength="10" />
+    <Property Type="Boolean" Name="View_" Nullable="true" />
+    <Property Type="Boolean" Name="Add_" Nullable="true" />
+    <Property Type="Boolean" Name="Update_" Nullable="true" />
+    <Property Type="Boolean" Name="Delete_" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="RolesSelectAll_Result">
+    <Property Type="String" Name="RoleID" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="RoleName" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="RolesSelectByID_Result">
+    <Property Type="String" Name="RoleID" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="RoleName" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SurveyInfoSelectAll_Result">
+    <Property Type="Guid" Name="IdSurvey" Nullable="false" />
+    <Property Type="Guid" Name="IdSurType" Nullable="true" />
+    <Property Type="String" Name="SurveyName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Descriptions" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Images" Nullable="true" MaxLength="500" />
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="LastEditedAt" Nullable="true" Precision="23" />
+    <Property Type="String" Name="LastEditedBy" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="OwnedUserID" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="SurveyInfoSelectByID_Result">
+    <Property Type="Guid" Name="IdSurvey" Nullable="false" />
+    <Property Type="Guid" Name="IdSurType" Nullable="true" />
+    <Property Type="String" Name="SurveyName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Descriptions" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Images" Nullable="true" MaxLength="500" />
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="LastEditedAt" Nullable="true" Precision="23" />
+    <Property Type="String" Name="LastEditedBy" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="OwnedUserID" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="SurveyTypeSelectAll_Result">
+    <Property Type="Guid" Name="IdSurType" Nullable="false" />
+    <Property Type="String" Name="TypeName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Descriptions" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="LastEditedAt" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SurveyTypeSelectByID_Result">
+    <Property Type="Guid" Name="IdSurType" Nullable="false" />
+    <Property Type="String" Name="TypeName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Descriptions" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="LastEditedAt" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+  </ComplexType>
+  <Association Name="FK_AnswerPaper_SurveyInfo">
+    <End Type="SurveyInfoModel.SurveyInfo" Role="SurveyInfo" Multiplicity="0..1" />
+    <End Type="SurveyInfoModel.AnswerPaper" Role="AnswerPaper" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SurveyInfo">
+        <PropertyRef Name="IdSurvey" />
+      </Principal>
+      <Dependent Role="AnswerPaper">
+        <PropertyRef Name="IdSurvey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Token">
+    <Key>
+      <PropertyRef Name="TokenId" />
+    </Key>
+    <Property Name="TokenId" Type="Guid" Nullable="false" />
+    <Property Name="UserId" Type="Guid" />
+    <Property Name="AuthToken" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IssuedOn" Type="DateTime" Precision="3" Nullable="false" />
+    <Property Name="ExpireOn" Type="DateTime" Precision="3" Nullable="false" />
+    <NavigationProperty Name="Account" Relationship="SurveyInfoModel.FK_Tokens_Account" FromRole="Token" ToRole="Account" />
+  </EntityType>
+  <Association Name="FK_Tokens_Account">
+    <End Type="SurveyInfoModel.Account" Role="Account" Multiplicity="0..1" />
+    <End Type="SurveyInfoModel.Token" Role="Token" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Token">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,690 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SurveyInfoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GroupID" Type="nvarchar" MaxLength="10" />
+    <Property Name="Passwords" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Birthday" Type="datetime" />
+    <Property Name="Gender" Type="bit" />
+    <Property Name="Mail" Type="nvarchar" MaxLength="100" />
+    <Property Name="Avatar" Type="varchar" MaxLength="500" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="AccountGroup">
+    <Key>
+      <PropertyRef Name="GroupID" />
+    </Key>
+    <Property Name="GroupID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="GroupName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Descriptions" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="AnswerPaper">
+    <Key>
+      <PropertyRef Name="IdAnsPaper" />
+    </Key>
+    <Property Name="IdAnsPaper" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="IdSurvey" Type="uniqueidentifier" />
+    <Property Name="Descriptions" Type="nvarchar" MaxLength="500" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="Answers">
+    <Key>
+      <PropertyRef Name="IdAnswer" />
+    </Key>
+    <Property Name="IdAnswer" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IdAnsPaper" Type="uniqueidentifier" />
+    <Property Name="IdChoices" Type="uniqueidentifier" />
+    <Property Name="IdQuestion" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="Choices">
+    <Key>
+      <PropertyRef Name="IdChoices" />
+    </Key>
+    <Property Name="IdChoices" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IdQuestion" Type="uniqueidentifier" />
+    <Property Name="NumericalOrder" Type="int" />
+    <Property Name="Content" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastEditedAt" Type="datetime" />
+    <Property Name="LastEditedBy" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="IdQuestion" />
+    </Key>
+    <Property Name="IdQuestion" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IdQuestionGroup" Type="uniqueidentifier" />
+    <Property Name="NumericalOrder" Type="int" />
+    <Property Name="IdSurvey" Type="uniqueidentifier" />
+    <Property Name="IdQuesType" Type="uniqueidentifier" />
+    <Property Name="Content" Type="nvarchar" MaxLength="50" />
+    <Property Name="Images" Type="varchar" MaxLength="500" />
+    <Property Name="IsRequired" Type="bit" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="LastEditedAt" Type="datetime" />
+    <Property Name="LastEditedBy" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="QuestionGroup">
+    <Key>
+      <PropertyRef Name="IdQuestionGroup" />
+    </Key>
+    <Property Name="IdQuestionGroup" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Content" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastEditedAt" Type="datetime" />
+    <Property Name="LastEditedBy" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="QuestionType">
+    <Key>
+      <PropertyRef Name="IdQuesType" />
+    </Key>
+    <Property Name="IdQuesType" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="LastEditedAt" Type="datetime" />
+    <Property Name="LastEditedBy" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="RolesDetail">
+    <Key>
+      <PropertyRef Name="RoleDetailID" />
+    </Key>
+    <Property Name="RoleDetailID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="RoleID" Type="nvarchar" MaxLength="10" />
+    <Property Name="GroupID" Type="nvarchar" MaxLength="10" />
+    <Property Name="View_" Type="bit" />
+    <Property Name="Add_" Type="bit" />
+    <Property Name="Update_" Type="bit" />
+    <Property Name="Delete_" Type="bit" />
+  </EntityType>
+  <EntityType Name="SurveyInfo">
+    <Key>
+      <PropertyRef Name="IdSurvey" />
+    </Key>
+    <Property Name="IdSurvey" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IdSurType" Type="uniqueidentifier" />
+    <Property Name="SurveyName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Descriptions" Type="nvarchar" MaxLength="500" />
+    <Property Name="Images" Type="varchar" MaxLength="500" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="LastEditedAt" Type="datetime" />
+    <Property Name="LastEditedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="OwnedUserID" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="SurveyType">
+    <Key>
+      <PropertyRef Name="IdSurType" />
+    </Key>
+    <Property Name="IdSurType" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Descriptions" Type="nvarchar" MaxLength="500" />
+    <Property Name="LastEditedAt" Type="datetime" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Tokens">
+    <Key>
+      <PropertyRef Name="TokenId" />
+    </Key>
+    <Property Name="TokenId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" />
+    <Property Name="AuthToken" Type="nvarchar" MaxLength="250" />
+    <Property Name="IssuedOn" Type="datetime" Nullable="false" />
+    <Property Name="ExpireOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Account_AccountGroup">
+    <End Role="AccountGroup" Type="Self.AccountGroup" Multiplicity="0..1" />
+    <End Role="Account" Type="Self.Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccountGroup">
+        <PropertyRef Name="GroupID" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AnswerPaper_SurveyInfo">
+    <End Role="SurveyInfo" Type="Self.SurveyInfo" Multiplicity="0..1" />
+    <End Role="AnswerPaper" Type="Self.AnswerPaper" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SurveyInfo">
+        <PropertyRef Name="IdSurvey" />
+      </Principal>
+      <Dependent Role="AnswerPaper">
+        <PropertyRef Name="IdSurvey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Answers_AnswerPaper">
+    <End Role="AnswerPaper" Type="Self.AnswerPaper" Multiplicity="0..1" />
+    <End Role="Answers" Type="Self.Answers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AnswerPaper">
+        <PropertyRef Name="IdAnsPaper" />
+      </Principal>
+      <Dependent Role="Answers">
+        <PropertyRef Name="IdAnsPaper" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Answers_Choices">
+    <End Role="Choices" Type="Self.Choices" Multiplicity="0..1" />
+    <End Role="Answers" Type="Self.Answers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Choices">
+        <PropertyRef Name="IdChoices" />
+      </Principal>
+      <Dependent Role="Answers">
+        <PropertyRef Name="IdChoices" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Answers_Question">
+    <End Role="Question" Type="Self.Question" Multiplicity="0..1" />
+    <End Role="Answers" Type="Self.Answers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="IdQuestion" />
+      </Principal>
+      <Dependent Role="Answers">
+        <PropertyRef Name="IdQuestion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Choices_Question">
+    <End Role="Question" Type="Self.Question" Multiplicity="0..1" />
+    <End Role="Choices" Type="Self.Choices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="IdQuestion" />
+      </Principal>
+      <Dependent Role="Choices">
+        <PropertyRef Name="IdQuestion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Question_QuestionGroup">
+    <End Role="QuestionGroup" Type="Self.QuestionGroup" Multiplicity="0..1" />
+    <End Role="Question" Type="Self.Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuestionGroup">
+        <PropertyRef Name="IdQuestionGroup" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="IdQuestionGroup" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Question_QuestionType">
+    <End Role="QuestionType" Type="Self.QuestionType" Multiplicity="0..1" />
+    <End Role="Question" Type="Self.Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuestionType">
+        <PropertyRef Name="IdQuesType" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="IdQuesType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Question_SurveyInfo">
+    <End Role="SurveyInfo" Type="Self.SurveyInfo" Multiplicity="0..1" />
+    <End Role="Question" Type="Self.Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SurveyInfo">
+        <PropertyRef Name="IdSurvey" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="IdSurvey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolesDetail_AccountGroup">
+    <End Role="AccountGroup" Type="Self.AccountGroup" Multiplicity="0..1" />
+    <End Role="RolesDetail" Type="Self.RolesDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccountGroup">
+        <PropertyRef Name="GroupID" />
+      </Principal>
+      <Dependent Role="RolesDetail">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolesDetail_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+    <End Role="RolesDetail" Type="Self.RolesDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="RolesDetail">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurveyInfo_SurveyType">
+    <End Role="SurveyType" Type="Self.SurveyType" Multiplicity="0..1" />
+    <End Role="SurveyInfo" Type="Self.SurveyInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SurveyType">
+        <PropertyRef Name="IdSurType" />
+      </Principal>
+      <Dependent Role="SurveyInfo">
+        <PropertyRef Name="IdSurType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tokens_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="Tokens" Type="Self.Tokens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Tokens">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AccountDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Username" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="AccountGroupDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GroupID" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="AccountGroupInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GroupID" Type="nvarchar" Mode="In" />
+    <Parameter Name="GroupName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Descriptions" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="AccountGroupSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="AccountGroupSelectByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GroupID" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="AccountGroupUpDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GroupID" Type="nvarchar" Mode="In" />
+    <Parameter Name="GroupName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Descriptions" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="AccountInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Username" Type="nvarchar" Mode="In" />
+    <Parameter Name="GroupID" Type="nvarchar" Mode="In" />
+    <Parameter Name="Passwords" Type="nvarchar" Mode="In" />
+    <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Birthday" Type="datetime" Mode="In" />
+    <Parameter Name="Gender" Type="bit" Mode="In" />
+    <Parameter Name="Mail" Type="nvarchar" Mode="In" />
+    <Parameter Name="Avatar" Type="image" Mode="In" />
+    <Parameter Name="Status" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="AccountSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="AccountSelectByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Username" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="AccountUpDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Username" Type="nvarchar" Mode="In" />
+    <Parameter Name="GroupID" Type="nvarchar" Mode="In" />
+    <Parameter Name="Passwords" Type="nvarchar" Mode="In" />
+    <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Birthday" Type="datetime" Mode="In" />
+    <Parameter Name="Gender" Type="bit" Mode="In" />
+    <Parameter Name="Mail" Type="nvarchar" Mode="In" />
+    <Parameter Name="Avatar" Type="varchar" Mode="In" />
+    <Parameter Name="Status" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="AnswerPaperDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdAnsPaper" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="AnswerPaperInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdAnsPaper" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="IdSurvey" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Descriptions" Type="nvarchar" Mode="In" />
+    <Parameter Name="Status" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="AnswerPaperSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="AnswerPaperSelectByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdAnsPaper" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="AnswerPaperUpDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdAnsPaper" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="IdSurvey" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Descriptions" Type="nvarchar" Mode="In" />
+    <Parameter Name="Status" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="AnswersDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdAnswer" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="AnswersInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdAnswer" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAnsPaper" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdSolutions" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdQuestion" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="AnswersSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="AnswersSelectByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdAnswer" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="AnswersUpDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdAnswer" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdAnsPaper" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdSolutions" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdQuestion" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="ChoicesDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdChoices" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="ChoicesInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdChoices" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdQuestion" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="NumericalOrder" Type="int" Mode="In" />
+    <Parameter Name="Content" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastEditedAt" Type="datetime" Mode="In" />
+    <Parameter Name="LastEditedBy" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ChoicesSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ChoicesSelectByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdChoices" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="ChoicesUpDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdChoices" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdQuestion" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="NumericalOrder" Type="int" Mode="In" />
+    <Parameter Name="Content" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastEditedAt" Type="datetime" Mode="In" />
+    <Parameter Name="LastEditedBy" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="QuestionDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdQuestion" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="QuestionGroupDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdQuestionGroup" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="QuestionGroupInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdQuestionGroup" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Content" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastEditedAt" Type="datetime" Mode="In" />
+    <Parameter Name="LastEditedBy" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="QuestionGroupSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="QuestionGroupSelectByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdQuestionGroup" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="QuestionGroupUpDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdQuestionGroup" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Content" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastEditedAt" Type="datetime" Mode="In" />
+    <Parameter Name="LastEditedBy" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="QuestionInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdQuestion" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdQuestionGroup" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="NumericalOrder" Type="int" Mode="In" />
+    <Parameter Name="IdSurvey" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdQuesType" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Content" Type="nvarchar" Mode="In" />
+    <Parameter Name="Images" Type="varchar" Mode="In" />
+    <Parameter Name="IsRequired" Type="bit" Mode="In" />
+    <Parameter Name="Status" Type="bit" Mode="In" />
+    <Parameter Name="LastEditedAt" Type="datetime" Mode="In" />
+    <Parameter Name="LastEditedBy" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="QuestionSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="QuestionSelectByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdQuestion" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="QuestionTypeDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdQuesType" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="QuestionTypeInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdQuesType" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="TypeName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Status" Type="bit" Mode="In" />
+    <Parameter Name="LastEditedAt" Type="datetime" Mode="In" />
+    <Parameter Name="LastEditedBy" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="QuestionTypeSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="QuestionTypeSelectByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdQuesType" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="QuestionTypeUpDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdQuesType" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="TypeName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Status" Type="bit" Mode="In" />
+    <Parameter Name="LastEditedAt" Type="datetime" Mode="In" />
+    <Parameter Name="LastEditedBy" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="QuestionUpDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdQuestion" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdQuestionGroup" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="NumericalOrder" Type="int" Mode="In" />
+    <Parameter Name="IdSurvey" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdQuesType" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Content" Type="nvarchar" Mode="In" />
+    <Parameter Name="Images" Type="varchar" Mode="In" />
+    <Parameter Name="IsRequired" Type="bit" Mode="In" />
+    <Parameter Name="Status" Type="bit" Mode="In" />
+    <Parameter Name="LastEditedAt" Type="datetime" Mode="In" />
+    <Parameter Name="LastEditedBy" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="RolesDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleID" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="RolesDetailDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleDetailID" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="RolesDetailInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleDetailID" Type="nvarchar" Mode="In" />
+    <Parameter Name="RoleID" Type="nvarchar" Mode="In" />
+    <Parameter Name="GroupID" Type="nvarchar" Mode="In" />
+    <Parameter Name="View_" Type="bit" Mode="In" />
+    <Parameter Name="Add_" Type="bit" Mode="In" />
+    <Parameter Name="Update_" Type="bit" Mode="In" />
+    <Parameter Name="Delete_" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="RolesDetailSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="RolesDetailSelectByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleDetailID" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="RolesDetailUpDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleDetailID" Type="nvarchar" Mode="In" />
+    <Parameter Name="RoleID" Type="nvarchar" Mode="In" />
+    <Parameter Name="GroupID" Type="nvarchar" Mode="In" />
+    <Parameter Name="View_" Type="bit" Mode="In" />
+    <Parameter Name="Add_" Type="bit" Mode="In" />
+    <Parameter Name="Update_" Type="bit" Mode="In" />
+    <Parameter Name="Delete_" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="RolesInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleID" Type="nvarchar" Mode="In" />
+    <Parameter Name="RoleName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Status" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="RolesSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="RolesSelectByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleID" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="RolesUpDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleID" Type="nvarchar" Mode="In" />
+    <Parameter Name="RoleName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Status" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SurveyInfoDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdSurvey" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="SurveyInfoInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdSurvey" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdSurType" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="SurveyName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Descriptions" Type="nvarchar" Mode="In" />
+    <Parameter Name="Images" Type="varchar" Mode="In" />
+    <Parameter Name="Status" Type="bit" Mode="In" />
+    <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="LastEditedAt" Type="datetime" Mode="In" />
+    <Parameter Name="LastEditedBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="OwnedUserID" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SurveyInfoSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SurveyInfoSelectByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdSurvey" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="SurveyInfoUpDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdSurvey" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdSurType" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="SurveyName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Descriptions" Type="nvarchar" Mode="In" />
+    <Parameter Name="Images" Type="varchar" Mode="In" />
+    <Parameter Name="Status" Type="bit" Mode="In" />
+    <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="LastEditedAt" Type="datetime" Mode="In" />
+    <Parameter Name="LastEditedBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="OwnedUserID" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SurveyTypeDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdSurType" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="SurveyTypeInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdSurType" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="TypeName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Descriptions" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastEditedAt" Type="datetime" Mode="In" />
+    <Parameter Name="Status" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="SurveyTypeSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SurveyTypeSelectByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdSurType" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="SurveyTypeUpDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdSurType" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="TypeName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Descriptions" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastEditedAt" Type="datetime" Mode="In" />
+    <Parameter Name="Status" Type="bit" Mode="In" />
+  </Function>
+  <EntityContainer Name="SurveyInfoModelStoreContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AccountGroup" EntityType="Self.AccountGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AnswerPaper" EntityType="Self.AnswerPaper" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Answers" EntityType="Self.Answers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Choices" EntityType="Self.Choices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuestionGroup" EntityType="Self.QuestionGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuestionType" EntityType="Self.QuestionType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RolesDetail" EntityType="Self.RolesDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SurveyInfo" EntityType="Self.SurveyInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SurveyType" EntityType="Self.SurveyType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tokens" EntityType="Self.Tokens" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Account_AccountGroup" Association="Self.FK_Account_AccountGroup">
+      <End Role="AccountGroup" EntitySet="AccountGroup" />
+      <End Role="Account" EntitySet="Account" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AnswerPaper_SurveyInfo" Association="Self.FK_AnswerPaper_SurveyInfo">
+      <End Role="SurveyInfo" EntitySet="SurveyInfo" />
+      <End Role="AnswerPaper" EntitySet="AnswerPaper" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Answers_AnswerPaper" Association="Self.FK_Answers_AnswerPaper">
+      <End Role="AnswerPaper" EntitySet="AnswerPaper" />
+      <End Role="Answers" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Answers_Choices" Association="Self.FK_Answers_Choices">
+      <End Role="Choices" EntitySet="Choices" />
+      <End Role="Answers" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Answers_Question" Association="Self.FK_Answers_Question">
+      <End Role="Question" EntitySet="Question" />
+      <End Role="Answers" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Choices_Question" Association="Self.FK_Choices_Question">
+      <End Role="Question" EntitySet="Question" />
+      <End Role="Choices" EntitySet="Choices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_QuestionGroup" Association="Self.FK_Question_QuestionGroup">
+      <End Role="QuestionGroup" EntitySet="QuestionGroup" />
+      <End Role="Question" EntitySet="Question" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_QuestionType" Association="Self.FK_Question_QuestionType">
+      <End Role="QuestionType" EntitySet="QuestionType" />
+      <End Role="Question" EntitySet="Question" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_SurveyInfo" Association="Self.FK_Question_SurveyInfo">
+      <End Role="SurveyInfo" EntitySet="SurveyInfo" />
+      <End Role="Question" EntitySet="Question" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolesDetail_AccountGroup" Association="Self.FK_RolesDetail_AccountGroup">
+      <End Role="AccountGroup" EntitySet="AccountGroup" />
+      <End Role="RolesDetail" EntitySet="RolesDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolesDetail_Roles" Association="Self.FK_RolesDetail_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="RolesDetail" EntitySet="RolesDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurveyInfo_SurveyType" Association="Self.FK_SurveyInfo_SurveyType">
+      <End Role="SurveyType" EntitySet="SurveyType" />
+      <End Role="SurveyInfo" EntitySet="SurveyInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tokens_Account" Association="Self.FK_Tokens_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Tokens" EntitySet="Tokens" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

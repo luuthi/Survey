@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="75ad1d0896f04349b3188a6520d1e6e8" Name="Diagram1">
+        <EntityTypeShape EntityType="SurveyInfoModel.Account" Width="1.5" PointX="9.375" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SurveyInfoModel.AccountGroup" Width="1.5" PointX="11.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="SurveyInfoModel.AnswerPaper" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SurveyInfoModel.Answer" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SurveyInfoModel.Choice" Width="1.5" PointX="10.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SurveyInfoModel.Question" Width="1.5" PointX="8.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SurveyInfoModel.QuestionGroup" Width="1.5" PointX="6" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SurveyInfoModel.QuestionType" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SurveyInfoModel.Role" Width="1.5" PointX="11.625" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SurveyInfoModel.RolesDetail" Width="1.5" PointX="14" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SurveyInfoModel.SurveyInfo" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SurveyInfoModel.SurveyType" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SurveyInfoModel.sysdiagram" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <AssociationConnector Association="SurveyInfoModel.FK_Account_AccountGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="SurveyInfoModel.FK_RolesDetail_AccountGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="SurveyInfoModel.FK_Answers_AnswerPaper" ManuallyRouted="false" />
+        <AssociationConnector Association="SurveyInfoModel.FK_SurveyInfo_AnswerPaper" ManuallyRouted="false" />
+        <AssociationConnector Association="SurveyInfoModel.FK_Answers_Choices" ManuallyRouted="false" />
+        <AssociationConnector Association="SurveyInfoModel.FK_Answers_Question" ManuallyRouted="false" />
+        <AssociationConnector Association="SurveyInfoModel.FK_Choices_Question" ManuallyRouted="false" />
+        <AssociationConnector Association="SurveyInfoModel.FK_Question_QuestionGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="SurveyInfoModel.FK_Question_QuestionType" ManuallyRouted="false" />
+        <AssociationConnector Association="SurveyInfoModel.FK_Question_SurveyInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="SurveyInfoModel.FK_RolesDetail_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="SurveyInfoModel.FK_SurveyInfo_SurveyType" ManuallyRouted="false" />
+        <AssociationConnector Association="SurveyInfoModel.FK_AnswerPaper_SurveyInfo" />
+        <EntityTypeShape EntityType="SurveyInfoModel.Token" Width="1.5" PointX="11.25" PointY="7.875" />
+        <AssociationConnector Association="SurveyInfoModel.FK_Tokens_Account" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

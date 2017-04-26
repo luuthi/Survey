@@ -1,0 +1,109 @@
+﻿
+.icon-bar {
+    margin: 20px 0 0 0;
+    padding: 0;
+   
+}
+
+
+        .icon-view, .icon-sort {
+            /*width: 33%;*/
+            float: left;
+             color:#01a2a6 !important;
+        }
+
+        .icon-bar i {
+            font-size: larger;
+            margin: 15px;
+        }
+
+        .icon-bar .icon-view:hover,.icon-bar  .icon-sort:hover {
+            background-color: #01a2a6 ;
+            border-radius: 3px;
+            color: #fff !important;
+        }
+a{
+    color:#fff;
+}
+a:hover{
+    text-decoration:none;
+}
+.panel-body .table-responsive i {
+    font-size: 1.5em;
+    cursor:pointer;
+}
+.list-survey,.grid-survey{
+    float:left;
+    margin:0;
+    padding:0;
+}
+th,td{
+    text-align:center;
+}
+table a{
+    color:#000 !important;
+}
+.panel-title{
+    border:#CCCCCC 1px solid;
+    margin:10px 0 10px 0;
+    border-radius:10px;
+    font-size:14px;
+    box-shadow:0 4px 8px 0 rgba(0,0,0,0.16),0 4px 10px 0 rgba(0,0,0,0.12)!important;
+}
+.panel-heading{
+    background-color:#01a2a6;
+    padding: 5px 5px !important;
+}
+.panel-body, .panel-heading{
+    border-bottom:#CCCCCC 1px solid;
+    text-align:center;
+}
+.panel-heading .nameSurvey{
+    font-size:14px;
+    font-weight:bold;
+    color:#fff;
+    display:-webkit-box;
+    height: 21px;
+    line-height: 1.4;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.panel-heading .dateEdited{
+    font-size:0.8em;
+    font-style:italic;
+    color:#fff;
+}
+.panel-body{
+    /*background-color:#e5e3e3;*/
+}
+
+.panel-footer {
+    background-color:#fff;
+}
+
+.panel-footer i, .table i{
+    font-size:1.5em;
+}
+.panel-footer i:hover{
+    font-weight:bold;
+}
+a{
+    cursor:pointer;
+}
+.fa-share-alt{
+    color:#136eb4;
+}
+.fa-bar-chart{
+    color:#00ff90;
+}
+.fa-remove{
+    color:red;
+}
+.fa-pencil-square{
+    color:#136eb4;  
+}
+.img-responsive{
+    display:inherit;
+}

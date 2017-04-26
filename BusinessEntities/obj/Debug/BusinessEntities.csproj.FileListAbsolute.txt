@@ -1,0 +1,24 @@
+C:\Users\luudi\documents\visual studio 2015\Projects\Survey\BusinessEntities\bin\Debug\BusinessEntities.dll
+C:\Users\luudi\documents\visual studio 2015\Projects\Survey\BusinessEntities\bin\Debug\BusinessEntities.pdb
+C:\Users\luudi\documents\visual studio 2015\Projects\Survey\BusinessEntities\obj\Debug\BusinessEntities.dll
+C:\Users\luudi\documents\visual studio 2015\Projects\Survey\BusinessEntities\obj\Debug\BusinessEntities.pdb
+C:\Users\luudi\documents\visual studio 2015\Projects\Survey\BusinessEntities\bin\Debug\Resolver.dll
+C:\Users\luudi\documents\visual studio 2015\Projects\Survey\BusinessEntities\bin\Debug\Microsoft.Practices.Unity.dll
+C:\Users\luudi\documents\visual studio 2015\Projects\Survey\BusinessEntities\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\luudi\documents\visual studio 2015\Projects\Survey\BusinessEntities\bin\Debug\Resolver.pdb
+C:\Users\luudi\documents\visual studio 2015\Projects\Survey\BusinessEntities\bin\Debug\Microsoft.Practices.Unity.xml
+C:\Users\luudi\documents\visual studio 2015\Projects\Survey\BusinessEntities\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\luudi\documents\visual studio 2015\Projects\Survey\BusinessEntities\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\luudi\documents\visual studio 2015\Projects\Survey\BusinessEntities\obj\Debug\BusinessEntities.csprojResolveAssemblyReference.cache
+D:\SurveyOnline\Survey\BusinessEntities\bin\Debug\BusinessEntities.dll
+D:\SurveyOnline\Survey\BusinessEntities\bin\Debug\BusinessEntities.pdb
+D:\SurveyOnline\Survey\BusinessEntities\bin\Debug\Resolver.dll
+D:\SurveyOnline\Survey\BusinessEntities\bin\Debug\Microsoft.Practices.Unity.dll
+D:\SurveyOnline\Survey\BusinessEntities\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+D:\SurveyOnline\Survey\BusinessEntities\bin\Debug\Resolver.pdb
+D:\SurveyOnline\Survey\BusinessEntities\bin\Debug\Microsoft.Practices.Unity.xml
+D:\SurveyOnline\Survey\BusinessEntities\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+D:\SurveyOnline\Survey\BusinessEntities\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+D:\SurveyOnline\Survey\BusinessEntities\obj\Debug\BusinessEntities.csprojResolveAssemblyReference.cache
+D:\SurveyOnline\Survey\BusinessEntities\obj\Debug\BusinessEntities.dll
+D:\SurveyOnline\Survey\BusinessEntities\obj\Debug\BusinessEntities.pdb

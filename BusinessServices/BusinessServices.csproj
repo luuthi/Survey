@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{32C06A60-F7AC-421F-9DA5-D56D24D172A2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BusinessServices</RootNamespace>
+    <AssemblyName>BusinessServices</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=2.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.2.2.0\lib\net40\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DependencyResolver.cs" />
+    <Compile Include="Implements\AccountGroupServices.cs" />
+    <Compile Include="Implements\AccountServices.cs" />
+    <Compile Include="Implements\AnswerPaperServices.cs" />
+    <Compile Include="Implements\AnswerServices.cs" />
+    <Compile Include="Implements\ChoicesServices.cs" />
+    <Compile Include="Implements\QuestionGroupServices.cs" />
+    <Compile Include="Implements\QuestionServices.cs" />
+    <Compile Include="Implements\QuestionTypeServices.cs" />
+    <Compile Include="Implements\RoleDetailServices.cs" />
+    <Compile Include="Implements\RoleServices.cs" />
+    <Compile Include="Implements\SurveyServices.cs" />
+    <Compile Include="Implements\SurveyTypeServices.cs" />
+    <Compile Include="Implements\TokenServices.cs" />
+    <Compile Include="Interfaces\IAccountGroupServices.cs" />
+    <Compile Include="Interfaces\IAccountServices.cs" />
+    <Compile Include="Interfaces\IAnswerPaperServices.cs" />
+    <Compile Include="Interfaces\IAnswerServices.cs" />
+    <Compile Include="Interfaces\IChoicesServices.cs" />
+    <Compile Include="Interfaces\IQuestionGroupServices.cs" />
+    <Compile Include="Interfaces\IQuestionServices.cs" />
+    <Compile Include="Interfaces\IQuestionTypeService.cs" />
+    <Compile Include="Interfaces\IRoleDetailServices.cs" />
+    <Compile Include="Interfaces\IRoleServives.cs" />
+    <Compile Include="Interfaces\ISurveyServices.cs" />
+    <Compile Include="Interfaces\ISurveyTypeServices.cs" />
+    <Compile Include="Interfaces\ITokenServices.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shareds\Ultis.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj">
+      <Project>{D4C03D9B-AC6C-4E0A-900A-F94BD621447B}</Project>
+      <Name>BusinessEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataModel\DataModel.csproj">
+      <Project>{F56D6E0D-1907-480B-9498-4329A65E5F7B}</Project>
+      <Name>DataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Resolver\Resolver.csproj">
+      <Project>{7e9b162b-62b0-4659-8f9b-df22fd4a7963}</Project>
+      <Name>Resolver</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

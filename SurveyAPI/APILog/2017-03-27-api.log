@@ -1,0 +1,79 @@
+2017-03-27 10:37:12.8090|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: POST
+URL: http://www.surveyapi.dev/api/Authenticate
+Controller : SurveyAPI.Controllers.AuthenticateController
+Action : Authenticate
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2017-03-27 10:48:46.8879|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:29119/api/Question
+Token: a7c6dd44-0dae-4b05-a690-e24b4fda2689
+Controller : SurveyAPI.Controllers.QuestionController
+Action : Get
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2017-03-27 10:49:15.7432|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:29119/api/Question
+Token: 0ec51abf-4d92-4325-a2a8-3d56d15c20b8
+Controller : SurveyAPI.Controllers.QuestionController
+Action : Get
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2017-03-27 10:49:49.8553|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:29119/api/Question
+Token: 0ec51abf-4d92-4325-a2a8-3d56d15c20b8
+Controller : SurveyAPI.Controllers.QuestionController
+Action : Get
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2017-03-27 10:49:58.3096|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:29119/api/Question
+Token: a7c6dd44-0dae-4b05-a690-e24b4fda2689
+Controller : SurveyAPI.Controllers.QuestionController
+Action : Get
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2017-03-27 10:50:27.2628|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:29119/api/Question
+Token: 0ec51abf-4d92-4325-a2a8-3d56d15c20b8
+Controller : SurveyAPI.Controllers.QuestionController
+Action : Get
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2017-03-27 10:52:05.4015|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:29119/api/Question
+Token: 0ec51abf-4d92-4325-a2a8-3d56d15c20b8
+Controller : SurveyAPI.Controllers.QuestionController
+Action : Get
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2017-03-27 10:54:51.9678|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:29119/api/Question
+Token: a7c6dd44-0dae-4b05-a690-e24b4fda2689
+Controller : SurveyAPI.Controllers.QuestionController
+Action : Get
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2017-03-27 10:55:04.3488|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:29119/api/Question
+Token: a7c6dd44-0dae-4b05-a690-e24b4fda2689
+Controller : SurveyAPI.Controllers.QuestionController
+Action : Get
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2017-03-27 10:57:15.0316|INFO|SurveyAPI.Helpers.NLogger|JSON
+Method: GET
+URL: http://localhost:29119/api/Question
+Token: 0ec51abf-4d92-4325-a2a8-3d56d15c20b8
+Controller : SurveyAPI.Controllers.QuestionController
+Action : Get
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+

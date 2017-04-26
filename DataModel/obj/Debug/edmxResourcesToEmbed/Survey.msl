@@ -1,0 +1,523 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SurveyInfoModelStoreContainer" CdmEntityContainer="SurveyEntities">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="SurveyInfoModel.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="Passwords" ColumnName="Passwords" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountGroups">
+      <EntityTypeMapping TypeName="SurveyInfoModel.AccountGroup">
+        <MappingFragment StoreEntitySet="AccountGroup">
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AnswerPapers">
+      <EntityTypeMapping TypeName="SurveyInfoModel.AnswerPaper">
+        <MappingFragment StoreEntitySet="AnswerPaper">
+          <ScalarProperty Name="IdAnsPaper" ColumnName="IdAnsPaper" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IdSurvey" ColumnName="IdSurvey" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Answers">
+      <EntityTypeMapping TypeName="SurveyInfoModel.Answer">
+        <MappingFragment StoreEntitySet="Answers">
+          <ScalarProperty Name="IdAnswer" ColumnName="IdAnswer" />
+          <ScalarProperty Name="IdAnsPaper" ColumnName="IdAnsPaper" />
+          <ScalarProperty Name="IdChoices" ColumnName="IdChoices" />
+          <ScalarProperty Name="IdQuestion" ColumnName="IdQuestion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Choices">
+      <EntityTypeMapping TypeName="SurveyInfoModel.Choice">
+        <MappingFragment StoreEntitySet="Choices">
+          <ScalarProperty Name="IdChoices" ColumnName="IdChoices" />
+          <ScalarProperty Name="IdQuestion" ColumnName="IdQuestion" />
+          <ScalarProperty Name="NumericalOrder" ColumnName="NumericalOrder" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="LastEditedAt" ColumnName="LastEditedAt" />
+          <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Questions">
+      <EntityTypeMapping TypeName="SurveyInfoModel.Question">
+        <MappingFragment StoreEntitySet="Question">
+          <ScalarProperty Name="IdQuestion" ColumnName="IdQuestion" />
+          <ScalarProperty Name="IdQuestionGroup" ColumnName="IdQuestionGroup" />
+          <ScalarProperty Name="NumericalOrder" ColumnName="NumericalOrder" />
+          <ScalarProperty Name="IdSurvey" ColumnName="IdSurvey" />
+          <ScalarProperty Name="IdQuesType" ColumnName="IdQuesType" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+          <ScalarProperty Name="IsRequired" ColumnName="IsRequired" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LastEditedAt" ColumnName="LastEditedAt" />
+          <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuestionGroups">
+      <EntityTypeMapping TypeName="SurveyInfoModel.QuestionGroup">
+        <MappingFragment StoreEntitySet="QuestionGroup">
+          <ScalarProperty Name="IdQuestionGroup" ColumnName="IdQuestionGroup" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="LastEditedAt" ColumnName="LastEditedAt" />
+          <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuestionTypes">
+      <EntityTypeMapping TypeName="SurveyInfoModel.QuestionType">
+        <MappingFragment StoreEntitySet="QuestionType">
+          <ScalarProperty Name="IdQuesType" ColumnName="IdQuesType" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LastEditedAt" ColumnName="LastEditedAt" />
+          <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="SurveyInfoModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RolesDetails">
+      <EntityTypeMapping TypeName="SurveyInfoModel.RolesDetail">
+        <MappingFragment StoreEntitySet="RolesDetail">
+          <ScalarProperty Name="RoleDetailID" ColumnName="RoleDetailID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="View_" ColumnName="View_" />
+          <ScalarProperty Name="Add_" ColumnName="Add_" />
+          <ScalarProperty Name="Update_" ColumnName="Update_" />
+          <ScalarProperty Name="Delete_" ColumnName="Delete_" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurveyInfoes">
+      <EntityTypeMapping TypeName="SurveyInfoModel.SurveyInfo">
+        <MappingFragment StoreEntitySet="SurveyInfo">
+          <ScalarProperty Name="IdSurvey" ColumnName="IdSurvey" />
+          <ScalarProperty Name="IdSurType" ColumnName="IdSurType" />
+          <ScalarProperty Name="SurveyName" ColumnName="SurveyName" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="LastEditedAt" ColumnName="LastEditedAt" />
+          <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+          <ScalarProperty Name="OwnedUserID" ColumnName="OwnedUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurveyTypes">
+      <EntityTypeMapping TypeName="SurveyInfoModel.SurveyType">
+        <MappingFragment StoreEntitySet="SurveyType">
+          <ScalarProperty Name="IdSurType" ColumnName="IdSurType" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="LastEditedAt" ColumnName="LastEditedAt" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="SurveyInfoModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AccountDelete" FunctionName="SurveyInfoModel.Store.AccountDelete" />
+    <FunctionImportMapping FunctionImportName="AccountGroupDelete" FunctionName="SurveyInfoModel.Store.AccountGroupDelete" />
+    <FunctionImportMapping FunctionImportName="AccountGroupInsert" FunctionName="SurveyInfoModel.Store.AccountGroupInsert" />
+    <FunctionImportMapping FunctionImportName="AccountGroupSelectAll" FunctionName="SurveyInfoModel.Store.AccountGroupSelectAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.AccountGroupSelectAll_Result">
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AccountGroupSelectByID" FunctionName="SurveyInfoModel.Store.AccountGroupSelectByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.AccountGroupSelectByID_Result">
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AccountGroupUpDate" FunctionName="SurveyInfoModel.Store.AccountGroupUpDate" />
+    <FunctionImportMapping FunctionImportName="AccountInsert" FunctionName="SurveyInfoModel.Store.AccountInsert" />
+    <FunctionImportMapping FunctionImportName="AccountSelectAll" FunctionName="SurveyInfoModel.Store.AccountSelectAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.AccountSelectAll_Result">
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="Passwords" ColumnName="Passwords" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AccountSelectByID" FunctionName="SurveyInfoModel.Store.AccountSelectByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.AccountSelectByID_Result">
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="Passwords" ColumnName="Passwords" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AccountUpDate" FunctionName="SurveyInfoModel.Store.AccountUpDate" />
+    <FunctionImportMapping FunctionImportName="AnswerPaperDelete" FunctionName="SurveyInfoModel.Store.AnswerPaperDelete" />
+    <FunctionImportMapping FunctionImportName="AnswerPaperInsert" FunctionName="SurveyInfoModel.Store.AnswerPaperInsert" />
+    <FunctionImportMapping FunctionImportName="AnswerPaperSelectAll" FunctionName="SurveyInfoModel.Store.AnswerPaperSelectAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.AnswerPaperSelectAll_Result">
+          <ScalarProperty Name="IdAnsPaper" ColumnName="IdAnsPaper" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IdSurvey" ColumnName="IdSurvey" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AnswerPaperSelectByID" FunctionName="SurveyInfoModel.Store.AnswerPaperSelectByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.AnswerPaperSelectByID_Result">
+          <ScalarProperty Name="IdAnsPaper" ColumnName="IdAnsPaper" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IdSurvey" ColumnName="IdSurvey" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AnswerPaperUpDate" FunctionName="SurveyInfoModel.Store.AnswerPaperUpDate" />
+    <FunctionImportMapping FunctionImportName="AnswersDelete" FunctionName="SurveyInfoModel.Store.AnswersDelete" />
+    <FunctionImportMapping FunctionImportName="AnswersInsert" FunctionName="SurveyInfoModel.Store.AnswersInsert" />
+    <FunctionImportMapping FunctionImportName="AnswersSelectAll" FunctionName="SurveyInfoModel.Store.AnswersSelectAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.AnswersSelectAll_Result">
+          <ScalarProperty Name="IdAnswer" ColumnName="IdAnswer" />
+          <ScalarProperty Name="IdAnsPaper" ColumnName="IdAnsPaper" />
+          <ScalarProperty Name="IdChoices" ColumnName="IdChoices" />
+          <ScalarProperty Name="IdQuestion" ColumnName="IdQuestion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AnswersSelectByID" FunctionName="SurveyInfoModel.Store.AnswersSelectByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.AnswersSelectByID_Result">
+          <ScalarProperty Name="IdAnswer" ColumnName="IdAnswer" />
+          <ScalarProperty Name="IdAnsPaper" ColumnName="IdAnsPaper" />
+          <ScalarProperty Name="IdChoices" ColumnName="IdChoices" />
+          <ScalarProperty Name="IdQuestion" ColumnName="IdQuestion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AnswersUpDate" FunctionName="SurveyInfoModel.Store.AnswersUpDate" />
+    <FunctionImportMapping FunctionImportName="ChoicesDelete" FunctionName="SurveyInfoModel.Store.ChoicesDelete" />
+    <FunctionImportMapping FunctionImportName="ChoicesInsert" FunctionName="SurveyInfoModel.Store.ChoicesInsert" />
+    <FunctionImportMapping FunctionImportName="ChoicesSelectAll" FunctionName="SurveyInfoModel.Store.ChoicesSelectAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.ChoicesSelectAll_Result">
+          <ScalarProperty Name="IdChoices" ColumnName="IdChoices" />
+          <ScalarProperty Name="IdQuestion" ColumnName="IdQuestion" />
+          <ScalarProperty Name="NumericalOrder" ColumnName="NumericalOrder" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="LastEditedAt" ColumnName="LastEditedAt" />
+          <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ChoicesSelectByID" FunctionName="SurveyInfoModel.Store.ChoicesSelectByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.ChoicesSelectByID_Result">
+          <ScalarProperty Name="IdChoices" ColumnName="IdChoices" />
+          <ScalarProperty Name="IdQuestion" ColumnName="IdQuestion" />
+          <ScalarProperty Name="NumericalOrder" ColumnName="NumericalOrder" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="LastEditedAt" ColumnName="LastEditedAt" />
+          <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ChoicesUpDate" FunctionName="SurveyInfoModel.Store.ChoicesUpDate" />
+    <FunctionImportMapping FunctionImportName="QuestionDelete" FunctionName="SurveyInfoModel.Store.QuestionDelete" />
+    <FunctionImportMapping FunctionImportName="QuestionGroupDelete" FunctionName="SurveyInfoModel.Store.QuestionGroupDelete" />
+    <FunctionImportMapping FunctionImportName="QuestionGroupInsert" FunctionName="SurveyInfoModel.Store.QuestionGroupInsert" />
+    <FunctionImportMapping FunctionImportName="QuestionGroupSelectAll" FunctionName="SurveyInfoModel.Store.QuestionGroupSelectAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.QuestionGroupSelectAll_Result">
+          <ScalarProperty Name="IdQuestionGroup" ColumnName="IdQuestionGroup" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="LastEditedAt" ColumnName="LastEditedAt" />
+          <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="QuestionGroupSelectByID" FunctionName="SurveyInfoModel.Store.QuestionGroupSelectByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.QuestionGroupSelectByID_Result">
+          <ScalarProperty Name="IdQuestionGroup" ColumnName="IdQuestionGroup" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="LastEditedAt" ColumnName="LastEditedAt" />
+          <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="QuestionGroupUpDate" FunctionName="SurveyInfoModel.Store.QuestionGroupUpDate" />
+    <FunctionImportMapping FunctionImportName="QuestionInsert" FunctionName="SurveyInfoModel.Store.QuestionInsert" />
+    <FunctionImportMapping FunctionImportName="QuestionSelectAll" FunctionName="SurveyInfoModel.Store.QuestionSelectAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.QuestionSelectAll_Result">
+          <ScalarProperty Name="IdQuestion" ColumnName="IdQuestion" />
+          <ScalarProperty Name="IdQuestionGroup" ColumnName="IdQuestionGroup" />
+          <ScalarProperty Name="NumericalOrder" ColumnName="NumericalOrder" />
+          <ScalarProperty Name="IdSurvey" ColumnName="IdSurvey" />
+          <ScalarProperty Name="IdQuesType" ColumnName="IdQuesType" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+          <ScalarProperty Name="IsRequired" ColumnName="IsRequired" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LastEditedAt" ColumnName="LastEditedAt" />
+          <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="QuestionSelectByID" FunctionName="SurveyInfoModel.Store.QuestionSelectByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.QuestionSelectByID_Result">
+          <ScalarProperty Name="IdQuestion" ColumnName="IdQuestion" />
+          <ScalarProperty Name="IdQuestionGroup" ColumnName="IdQuestionGroup" />
+          <ScalarProperty Name="NumericalOrder" ColumnName="NumericalOrder" />
+          <ScalarProperty Name="IdSurvey" ColumnName="IdSurvey" />
+          <ScalarProperty Name="IdQuesType" ColumnName="IdQuesType" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+          <ScalarProperty Name="IsRequired" ColumnName="IsRequired" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LastEditedAt" ColumnName="LastEditedAt" />
+          <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="QuestionTypeDelete" FunctionName="SurveyInfoModel.Store.QuestionTypeDelete" />
+    <FunctionImportMapping FunctionImportName="QuestionTypeInsert" FunctionName="SurveyInfoModel.Store.QuestionTypeInsert" />
+    <FunctionImportMapping FunctionImportName="QuestionTypeSelectAll" FunctionName="SurveyInfoModel.Store.QuestionTypeSelectAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.QuestionTypeSelectAll_Result">
+          <ScalarProperty Name="IdQuesType" ColumnName="IdQuesType" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LastEditedAt" ColumnName="LastEditedAt" />
+          <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="QuestionTypeSelectByID" FunctionName="SurveyInfoModel.Store.QuestionTypeSelectByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.QuestionTypeSelectByID_Result">
+          <ScalarProperty Name="IdQuesType" ColumnName="IdQuesType" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LastEditedAt" ColumnName="LastEditedAt" />
+          <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="QuestionTypeUpDate" FunctionName="SurveyInfoModel.Store.QuestionTypeUpDate" />
+    <FunctionImportMapping FunctionImportName="QuestionUpDate" FunctionName="SurveyInfoModel.Store.QuestionUpDate" />
+    <FunctionImportMapping FunctionImportName="RolesDelete" FunctionName="SurveyInfoModel.Store.RolesDelete" />
+    <FunctionImportMapping FunctionImportName="RolesDetailDelete" FunctionName="SurveyInfoModel.Store.RolesDetailDelete" />
+    <FunctionImportMapping FunctionImportName="RolesDetailInsert" FunctionName="SurveyInfoModel.Store.RolesDetailInsert" />
+    <FunctionImportMapping FunctionImportName="RolesDetailSelectAll" FunctionName="SurveyInfoModel.Store.RolesDetailSelectAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.RolesDetailSelectAll_Result">
+          <ScalarProperty Name="RoleDetailID" ColumnName="RoleDetailID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="View_" ColumnName="View_" />
+          <ScalarProperty Name="Add_" ColumnName="Add_" />
+          <ScalarProperty Name="Update_" ColumnName="Update_" />
+          <ScalarProperty Name="Delete_" ColumnName="Delete_" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RolesDetailSelectByID" FunctionName="SurveyInfoModel.Store.RolesDetailSelectByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.RolesDetailSelectByID_Result">
+          <ScalarProperty Name="RoleDetailID" ColumnName="RoleDetailID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="View_" ColumnName="View_" />
+          <ScalarProperty Name="Add_" ColumnName="Add_" />
+          <ScalarProperty Name="Update_" ColumnName="Update_" />
+          <ScalarProperty Name="Delete_" ColumnName="Delete_" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RolesDetailUpDate" FunctionName="SurveyInfoModel.Store.RolesDetailUpDate" />
+    <FunctionImportMapping FunctionImportName="RolesInsert" FunctionName="SurveyInfoModel.Store.RolesInsert" />
+    <FunctionImportMapping FunctionImportName="RolesSelectAll" FunctionName="SurveyInfoModel.Store.RolesSelectAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.RolesSelectAll_Result">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RolesSelectByID" FunctionName="SurveyInfoModel.Store.RolesSelectByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.RolesSelectByID_Result">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RolesUpDate" FunctionName="SurveyInfoModel.Store.RolesUpDate" />
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="SurveyInfoModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="SurveyInfoModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="SurveyInfoModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="SurveyInfoModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="SurveyInfoModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="SurveyInfoModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="SurveyInfoModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="SurveyInfoDelete" FunctionName="SurveyInfoModel.Store.SurveyInfoDelete" />
+    <FunctionImportMapping FunctionImportName="SurveyInfoInsert" FunctionName="SurveyInfoModel.Store.SurveyInfoInsert" />
+    <FunctionImportMapping FunctionImportName="SurveyInfoSelectAll" FunctionName="SurveyInfoModel.Store.SurveyInfoSelectAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.SurveyInfoSelectAll_Result">
+          <ScalarProperty Name="IdSurvey" ColumnName="IdSurvey" />
+          <ScalarProperty Name="IdSurType" ColumnName="IdSurType" />
+          <ScalarProperty Name="SurveyName" ColumnName="SurveyName" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="LastEditedAt" ColumnName="LastEditedAt" />
+          <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+          <ScalarProperty Name="OwnedUserID" ColumnName="OwnedUserID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SurveyInfoSelectByID" FunctionName="SurveyInfoModel.Store.SurveyInfoSelectByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.SurveyInfoSelectByID_Result">
+          <ScalarProperty Name="IdSurvey" ColumnName="IdSurvey" />
+          <ScalarProperty Name="IdSurType" ColumnName="IdSurType" />
+          <ScalarProperty Name="SurveyName" ColumnName="SurveyName" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="LastEditedAt" ColumnName="LastEditedAt" />
+          <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+          <ScalarProperty Name="OwnedUserID" ColumnName="OwnedUserID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SurveyInfoUpDate" FunctionName="SurveyInfoModel.Store.SurveyInfoUpDate" />
+    <FunctionImportMapping FunctionImportName="SurveyTypeDelete" FunctionName="SurveyInfoModel.Store.SurveyTypeDelete" />
+    <FunctionImportMapping FunctionImportName="SurveyTypeInsert" FunctionName="SurveyInfoModel.Store.SurveyTypeInsert" />
+    <FunctionImportMapping FunctionImportName="SurveyTypeSelectAll" FunctionName="SurveyInfoModel.Store.SurveyTypeSelectAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.SurveyTypeSelectAll_Result">
+          <ScalarProperty Name="IdSurType" ColumnName="IdSurType" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="LastEditedAt" ColumnName="LastEditedAt" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SurveyTypeSelectByID" FunctionName="SurveyInfoModel.Store.SurveyTypeSelectByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyInfoModel.SurveyTypeSelectByID_Result">
+          <ScalarProperty Name="IdSurType" ColumnName="IdSurType" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="LastEditedAt" ColumnName="LastEditedAt" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SurveyTypeUpDate" FunctionName="SurveyInfoModel.Store.SurveyTypeUpDate" />
+    <EntitySetMapping Name="Tokens">
+      <EntityTypeMapping TypeName="SurveyInfoModel.Token">
+        <MappingFragment StoreEntitySet="Tokens">
+          <ScalarProperty Name="ExpireOn" ColumnName="ExpireOn" />
+          <ScalarProperty Name="IssuedOn" ColumnName="IssuedOn" />
+          <ScalarProperty Name="AuthToken" ColumnName="AuthToken" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="TokenId" ColumnName="TokenId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
